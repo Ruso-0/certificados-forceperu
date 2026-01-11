@@ -1,10 +1,12 @@
 import { cn } from '../../lib/utils'
+import type { CSSProperties } from 'react'
 
 interface IconProps {
   name: string
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl'
   filled?: boolean
   className?: string
+  style?: CSSProperties
 }
 
 const sizeMap = {
@@ -15,7 +17,7 @@ const sizeMap = {
   xl: 'text-4xl',
 }
 
-export function Icon({ name, size = 'md', filled = false, className }: IconProps) {
+export function Icon({ name, size = 'md', filled = false, className, style }: IconProps) {
   return (
     <span
       className={cn(
@@ -24,6 +26,7 @@ export function Icon({ name, size = 'md', filled = false, className }: IconProps
         sizeMap[size],
         className
       )}
+      style={style}
       aria-hidden="true"
     >
       {name}

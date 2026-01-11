@@ -702,11 +702,11 @@ export function HomePage() {
           <div className="grid lg:grid-cols-12 gap-8 items-start">
             {/* Left - Main Card */}
             <div className="lg:col-span-7 bg-white rounded-3xl shadow-2xl overflow-hidden">
-              {/* Top Banner - Professional */}
+              {/* Top Banner - With Fire Animation */}
               <div className="bg-gradient-to-r from-[#b91c1c] via-[#dc2626] to-[#b91c1c] px-6 lg:px-8 py-4 flex items-center justify-between">
                 <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">
-                    <Icon name="warning" className="text-white" style={{ fontSize: '18px' }} />
+                  <div className="animate-fire">
+                    <Icon name="local_fire_department" className="text-yellow-300 drop-shadow-lg" style={{ fontSize: '28px' }} />
                   </div>
                   <div>
                     <span className="text-white font-bold tracking-wide text-sm lg:text-base">CUPOS LIMITADOS</span>

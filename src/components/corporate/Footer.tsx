@@ -27,7 +27,7 @@ export function Footer() {
           <div className="lg:col-span-1">
             <Link to="/" className="flex items-center gap-3 mb-6 group">
               <img
-                src="/images/logo-force-peru.png"
+                src="/images/logo-force-peru.avif"
                 alt="Force Peru SAC"
                 className="h-14 w-auto brightness-0 invert transition-transform group-hover:scale-105"
               />

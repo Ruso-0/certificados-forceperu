@@ -56,7 +56,7 @@ export function Header() {
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3 group">
             <img
-              src="/images/logo-force-peru.png"
+              src="/images/logo-force-peru.avif"
               alt="Force Peru SAC"
               className="h-12 w-auto transition-transform group-hover:scale-105"
             />

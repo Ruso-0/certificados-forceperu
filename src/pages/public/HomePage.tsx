@@ -169,7 +169,7 @@ export function HomePage() {
               {/* Social Icons */}
               <div className="hidden md:flex items-center gap-3">
                 <a
-                  href="https://www.facebook.com/forceperusac"
+                  href="https://www.facebook.com/people/FORCE-PER%C3%9A/100091540102786/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-9 h-9 bg-gray-100 hover:bg-[#1877f2] rounded-full flex items-center justify-center transition-all group"
@@ -268,7 +268,7 @@ export function HomePage() {
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-3">
                     <a
-                      href="https://www.facebook.com/forceperusac"
+                      href="https://www.facebook.com/people/FORCE-PER%C3%9A/100091540102786/"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="w-11 h-11 bg-gray-100 hover:bg-[#1877f2] rounded-xl flex items-center justify-center transition-all group"
@@ -702,11 +702,11 @@ export function HomePage() {
           <div className="grid lg:grid-cols-12 gap-8 items-start">
             {/* Left - Main Card */}
             <div className="lg:col-span-7 bg-white rounded-3xl shadow-2xl overflow-hidden">
-              {/* Top Banner - Professional with animated fire */}
+              {/* Top Banner - Professional */}
               <div className="bg-gradient-to-r from-[#b91c1c] via-[#dc2626] to-[#b91c1c] px-6 lg:px-8 py-4 flex items-center justify-between">
                 <div className="flex items-center gap-3">
-                  <div className="animate-fire">
-                    <Icon name="local_fire_department" className="text-yellow-300" style={{ fontSize: '26px' }} />
+                  <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">
+                    <Icon name="warning" className="text-white" style={{ fontSize: '18px' }} />
                   </div>
                   <div>
                     <span className="text-white font-bold tracking-wide text-sm lg:text-base">CUPOS LIMITADOS</span>
@@ -836,8 +836,10 @@ export function HomePage() {
                 {/* Header */}
                 <div className="bg-gradient-to-r from-[#1a3a5c] to-[#2d5a87] px-6 py-4">
                   <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-2">
-                      <Icon name="payments" className="text-yellow-400" style={{ fontSize: '22px' }} />
+                    <div className="flex items-center gap-3">
+                      <div className="w-8 h-8 bg-white/15 rounded-lg flex items-center justify-center">
+                        <Icon name="account_balance_wallet" className="text-white" style={{ fontSize: '18px' }} />
+                      </div>
                       <span className="text-white font-bold tracking-wide">INVERSIÓN</span>
                     </div>
                   </div>
@@ -1210,7 +1212,7 @@ export function HomePage() {
               {/* Social Icons Footer */}
               <div className="flex items-center gap-4 mt-6">
                 <a
-                  href="https://www.facebook.com/forceperusac"
+                  href="https://www.facebook.com/people/FORCE-PER%C3%9A/100091540102786/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-10 h-10 bg-white/10 hover:bg-[#1877f2] rounded-full flex items-center justify-center transition-all"

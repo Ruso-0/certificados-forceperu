@@ -1,34 +1,6 @@
 import { Link } from 'react-router-dom'
 import { HeroSlider } from '../../components/corporate/HeroSlider'
-import { ServiceCard } from '../../components/corporate/ServiceCard'
 import { Icon } from '../../components/ui/Icon'
-
-const services = [
-  {
-    title: 'Saneamiento Ambiental',
-    description: 'Control de plagas, fumigación y desratización con métodos eco-amigables para proteger la salud de tu entorno.',
-    image: '/images/service-saneamiento.jpg',
-    href: '/servicios/saneamiento-ambiental',
-  },
-  {
-    title: 'Seguridad Integral',
-    description: 'Servicios de vigilancia y resguardo con personal altamente capacitado para empresas públicas y privadas.',
-    image: '/images/service-seguridad.jpg',
-    href: '/servicios/seguridad-integral',
-  },
-  {
-    title: 'Capacitación y Entrenamiento',
-    description: 'Programas de formación en seguridad, gestión de riesgos y protección patrimonial certificados.',
-    image: '/images/service-capacitacion.jpg',
-    href: '/servicios/capacitacion',
-  },
-  {
-    title: 'Limpieza de Ambientes',
-    description: 'Servicios profesionales de limpieza y mantenimiento para oficinas, industrias y espacios comerciales.',
-    image: '/images/service-limpieza.jpg',
-    href: '/servicios/limpieza',
-  },
-]
 
 export function HomePage() {
   return (
@@ -137,51 +109,6 @@ export function HomePage() {
                 className="w-full rounded-xl shadow-2xl"
               />
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Services Section */}
-      <section className="py-16 lg:py-24 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Section Header */}
-          <div className="text-center mb-12">
-            <h2 className="text-brand text-2xl lg:text-3xl font-bold mb-4">
-              SERVICIOS
-            </h2>
-            <div className="w-16 h-1 bg-brand mx-auto" />
-          </div>
-
-          {/* Services Grid */}
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.slice(0, 3).map((service, index) => (
-              <ServiceCard
-                key={service.href}
-                {...service}
-                delay={index * 100}
-              />
-            ))}
-          </div>
-
-          {/* Fourth service - full width or add more */}
-          <div className="mt-8 max-w-md mx-auto sm:max-w-none sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="sm:col-start-2 lg:col-start-2">
-              <ServiceCard
-                {...services[3]}
-                delay={300}
-              />
-            </div>
-          </div>
-
-          {/* View All Button */}
-          <div className="text-center mt-12">
-            <Link
-              to="/servicios"
-              className="inline-flex items-center gap-2 px-8 py-3 bg-brand text-white font-semibold rounded-md hover:bg-brand-dark transition-colors"
-            >
-              VER TODOS LOS SERVICIOS
-              <Icon name="arrow_forward" size="sm" />
-            </Link>
           </div>
         </div>
       </section>

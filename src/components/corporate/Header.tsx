@@ -30,10 +30,13 @@ export function Header() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  // Close mobile menu on route change
+  // Close mobile menu on route change (but keep services dropdown open if on services page)
   useEffect(() => {
     setIsMobileMenuOpen(false)
-    setIsServicesOpen(false)
+    // Keep dropdown open if navigating within services
+    if (!location.pathname.startsWith('/servicios')) {
+      setIsServicesOpen(false)
+    }
   }, [location.pathname])
 
   const isActive = (href: string) => {
@@ -72,13 +75,9 @@ export function Header() {
             {navItems.map((item) => (
               <div key={item.name} className="relative">
                 {item.hasDropdown ? (
-                  <div
-                    className="relative"
-                    onMouseEnter={() => setIsServicesOpen(true)}
-                    onMouseLeave={() => setIsServicesOpen(false)}
-                  >
-                    <Link
-                      to={item.href}
+                  <div className="relative">
+                    <button
+                      onClick={() => setIsServicesOpen(!isServicesOpen)}
                       className={`px-4 py-2 text-sm font-medium transition-colors flex items-center gap-1 ${
                         isActive(item.href)
                           ? isScrolled
@@ -95,9 +94,9 @@ export function Header() {
                         size="sm"
                         className={`transition-transform ${isServicesOpen ? 'rotate-180' : ''}`}
                       />
-                    </Link>
+                    </button>
 
-                    {/* Dropdown Menu */}
+                    {/* Dropdown Menu - stays open on click */}
                     {isServicesOpen && (
                       <div className="absolute top-full left-0 mt-1 w-64 bg-white rounded-lg shadow-xl py-2 animate-dropdown">
                         {services.map((service) => (
@@ -106,7 +105,7 @@ export function Header() {
                             to={service.href}
                             className={`block px-4 py-3 text-sm transition-colors ${
                               location.pathname === service.href
-                                ? 'text-brand bg-brand/5'
+                                ? 'text-brand bg-brand/5 font-medium'
                                 : 'text-gray-700 hover:text-brand hover:bg-gray-50'
                             }`}
                           >

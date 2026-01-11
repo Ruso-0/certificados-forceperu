@@ -12,6 +12,13 @@
   --color-warning: #f59e0b;
   --color-error: #ef4444;
 
+  /* Corporate Colors - Force Perú SAC */
+  --color-brand: #0099cc;
+  --color-brand-dark: #007aa3;
+  --color-brand-light: #33addb;
+  --color-brand-navy: #1f2b5d;
+  --color-brand-gray: #f5f5f5;
+
   /* Fonts */
   --font-heading: 'Inter', system-ui, sans-serif;
   --font-body: 'Inter', system-ui, sans-serif;
@@ -218,4 +225,180 @@ body {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
+}
+
+/* ============================================
+   CORPORATE WEBSITE ANIMATIONS
+   ============================================ */
+
+/* Hero Slider Animations */
+@keyframes slide-in-right {
+  from { opacity: 0; transform: translateX(50px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slide-in-left {
+  from { opacity: 0; transform: translateX(-50px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slide-in-up {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes zoom-in {
+  from { opacity: 0; transform: scale(1.1); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes fade-slide {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Scroll Reveal Animation */
+@keyframes reveal {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes reveal-left {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes reveal-right {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes reveal-scale {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Animation Classes */
+.animate-slide-in-right {
+  animation: slide-in-right 0.8s ease-out forwards;
+}
+
+.animate-slide-in-left {
+  animation: slide-in-left 0.8s ease-out forwards;
+}
+
+.animate-slide-in-up {
+  animation: slide-in-up 0.6s ease-out forwards;
+}
+
+.animate-zoom-in {
+  animation: zoom-in 1.2s ease-out forwards;
+}
+
+.animate-fade-slide {
+  animation: fade-slide 0.8s ease-out forwards;
+}
+
+.animate-reveal {
+  animation: reveal 0.7s ease-out forwards;
+}
+
+.animate-reveal-left {
+  animation: reveal-left 0.7s ease-out forwards;
+}
+
+.animate-reveal-right {
+  animation: reveal-right 0.7s ease-out forwards;
+}
+
+.animate-reveal-scale {
+  animation: reveal-scale 0.6s ease-out forwards;
+}
+
+/* Staggered delays for lists */
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-400 { animation-delay: 400ms; }
+.delay-500 { animation-delay: 500ms; }
+
+/* Card Hover Effects */
+.card-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Image Zoom on Hover */
+.img-zoom {
+  overflow: hidden;
+}
+
+.img-zoom img {
+  transition: transform 0.5s ease;
+}
+
+.img-zoom:hover img {
+  transform: scale(1.1);
+}
+
+/* Menu Dropdown Animation */
+@keyframes dropdown-open {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-dropdown {
+  animation: dropdown-open 0.2s ease-out forwards;
+}
+
+/* Gradient Text */
+.text-gradient {
+  background: linear-gradient(135deg, #0099cc 0%, #1f2b5d 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Hero Overlay */
+.hero-overlay {
+  background: linear-gradient(
+    to right,
+    rgba(0, 153, 204, 0.85) 0%,
+    rgba(31, 43, 93, 0.7) 50%,
+    rgba(31, 43, 93, 0.4) 100%
+  );
 }

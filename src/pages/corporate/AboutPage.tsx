@@ -18,7 +18,7 @@ const values = [
     description: 'Construimos relaciones duraderas basadas en la confianza.',
   },
   {
-    icon: 'eco',
+    image: '/images/responsabilidad-icon.png',
     title: 'Responsabilidad',
     description: 'Operamos de manera responsable con el medio ambiente.',
   },
@@ -155,8 +155,12 @@ export function AboutPage() {
                 className="text-center animate-reveal"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
-                <div className="w-20 h-20 bg-brand/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Icon name={value.icon} size="xl" className="text-brand" />
+                <div className="w-20 h-20 bg-secondary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                  {value.image ? (
+                    <img src={value.image} alt={value.title} className="w-14 h-14 object-contain" />
+                  ) : (
+                    <Icon name={value.icon!} size="xl" className="text-secondary" />
+                  )}
                 </div>
                 <h3 className="text-lg font-bold text-brand-navy mb-2">{value.title}</h3>
                 <p className="text-gray-600 text-sm">{value.description}</p>
@@ -167,7 +171,7 @@ export function AboutPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 bg-brand">
+      <section className="py-16 bg-primary">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-2xl lg:text-3xl font-bold text-white mb-4">
             ¿Listo para trabajar con nosotros?
@@ -177,7 +181,7 @@ export function AboutPage() {
           </p>
           <Link
             to="/contacto"
-            className="inline-flex items-center gap-2 px-8 py-3 bg-white text-brand font-semibold rounded-md hover:bg-gray-100 transition-colors"
+            className="inline-flex items-center gap-2 px-8 py-3 bg-white text-primary font-semibold rounded-lg hover:bg-gray-100 transition-colors"
           >
             CONTÁCTENOS
             <Icon name="arrow_forward" size="sm" />

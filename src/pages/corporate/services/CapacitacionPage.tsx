@@ -39,13 +39,14 @@ export function CapacitacionPage() {
   return (
     <div>
       {/* Hero Banner */}
-      <section className="relative h-[400px] lg:h-[500px]">
+      <section className="relative h-[500px] lg:h-[700px]">
         <img
-          src="/images/service-capacitacion.jpg"
+          src="/images/capacitacion.jpg"
           alt="Capacitación y Entrenamiento"
           className="absolute inset-0 w-full h-full object-cover"
+          style={{ objectPosition: 'center 30%' }}
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/90 to-primary/70" />
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/80 to-primary/50" />
         <div className="relative h-full flex items-center">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
             <h1 className="text-4xl lg:text-5xl font-display font-bold text-white mb-4">

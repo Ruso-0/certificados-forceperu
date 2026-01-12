@@ -26,6 +26,7 @@ import { CoursesPage } from './pages/admin/CoursesPage'
 
 // Public Pages
 import { VerifyPage } from './pages/public/VerifyPage'
+import { IntranetPage } from './pages/public/IntranetPage'
 
 import './index.css'
 
@@ -49,6 +50,9 @@ function App() {
           {/* Certificate Verification (Public) */}
           <Route path="/verificar" element={<VerifyPage />} />
           <Route path="/verificar/:codigo" element={<VerifyPage />} />
+
+          {/* Intranet - Login & QR Scanner */}
+          <Route path="/intranet" element={<IntranetPage />} />
 
           {/* Auth routes */}
           <Route path="/admin/login" element={<LoginPage />} />

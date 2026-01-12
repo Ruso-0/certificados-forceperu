@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom'
 import { Icon } from '../../components/ui/Icon'
+import { ParticleNetwork } from '../../components/ui/ParticleNetwork'
+import { useScrollReveal } from '../../hooks/useScrollReveal'
 
 const services = [
   {
@@ -7,28 +9,28 @@ const services = [
     title: 'Saneamiento Ambiental',
     description: 'Control de plagas, fumigación y desinfección con productos certificados.',
     href: '/servicios/saneamiento-ambiental',
-    image: '/images/cliente-1.jpg',
+    image: '/images/saneamiento-ambiental.jpg',
   },
   {
     icon: 'security',
     title: 'Seguridad Integral',
     description: 'Vigilancia privada, resguardo y protección patrimonial 24/7.',
     href: '/servicios/seguridad-integral',
-    image: '/images/cliente-2.jpg',
+    image: '/images/seguridad-integral.jpg',
   },
   {
     icon: 'school',
     title: 'Capacitación',
     description: 'Cursos certificados en seguridad, primeros auxilios y emergencias.',
     href: '/servicios/capacitacion',
-    image: '/images/cliente-3.jpg',
+    image: '/images/capacitacion.jpg',
   },
   {
     icon: 'cleaning_services',
     title: 'Limpieza',
     description: 'Servicios profesionales de limpieza para oficinas e industrias.',
     href: '/servicios/limpieza',
-    image: '/images/cliente-4.jpg',
+    image: '/images/limpieza.jpg',
   },
 ]
 
@@ -43,80 +45,52 @@ const certifications = [
   { name: 'ISO 9001', icon: 'workspace_premium' },
   { name: 'DIGESA', icon: 'verified' },
   { name: 'SUCAMEC', icon: 'shield' },
-  { name: 'INDECI', icon: 'local_fire_department' },
+  { name: 'INDECI', image: '/images/Logo_INDECI.png', link: 'https://portal.indeci.gob.pe/emergencias/' },
 ]
 
 export function HomePage() {
+  useScrollReveal()
+
   return (
     <div>
-      {/* Hero Section - Prosegur Style */}
-      <section className="relative min-h-[85vh] flex items-center bg-primary">
-        <div className="absolute inset-0">
-          <img
-            src="/images/hero-bg.jpeg"
-            alt=""
-            className="w-full h-full object-cover opacity-30"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/95 to-primary/80" />
+      {/* Hero Section - Particle Network Background */}
+      <section className="relative min-h-screen overflow-hidden bg-gradient-to-br from-[#0B1220] via-[#0f1a2e] to-[#0B1220]">
+        {/* Particle Network Animation */}
+        <ParticleNetwork />
+
+        {/* Subtle gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#0B1220]/50" />
+
+        {/* Content */}
+        <div className="relative z-10 min-h-screen flex items-center justify-center text-center px-4">
+          <div className="max-w-4xl">
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-display font-black text-white mb-6 animate-fade-in">
+              FORCE PERÚ S.A.C.
+            </h1>
+            <p className="text-xl md:text-2xl text-white/80 mb-10 animate-slide-up delay-200">
+              Seguridad Integral y Saneamiento Ambiental
+            </p>
+            <div className="flex flex-wrap gap-4 justify-center animate-slide-up delay-300">
+              <Link
+                to="/servicios"
+                className="px-8 py-4 bg-amber-500 text-black font-bold rounded hover:bg-amber-400 transition-all btn-shine"
+              >
+                Ver Servicios
+              </Link>
+              <Link
+                to="/contacto"
+                className="px-8 py-4 border-2 border-white text-white font-bold rounded hover:bg-white hover:text-black transition-all"
+              >
+                Contactar
+              </Link>
+            </div>
+          </div>
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 w-full">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Left - Text Content */}
-            <div>
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-secondary/20 rounded-full mb-6">
-                <span className="w-2 h-2 bg-secondary rounded-full" />
-                <span className="text-secondary text-sm font-medium">Desde 2012 protegiendo tu tranquilidad</span>
-              </div>
-
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-white leading-tight mb-6">
-                Soluciones integrales en{' '}
-                <span className="text-secondary">seguridad</span> y{' '}
-                <span className="text-secondary">saneamiento</span>
-              </h1>
-
-              <p className="text-xl text-white/70 mb-8 max-w-lg">
-                Protegemos lo que más importa. Servicios profesionales con los más altos estándares de calidad para empresas y hogares.
-              </p>
-
-              <div className="flex flex-wrap gap-4">
-                <Link
-                  to="/servicios"
-                  className="inline-flex items-center gap-2 px-8 py-4 bg-secondary text-white font-semibold rounded-lg hover:bg-secondary-light transition-all duration-300 shadow-lg shadow-secondary/30"
-                >
-                  Nuestros servicios
-                  <Icon name="arrow_forward" size="sm" />
-                </Link>
-                <Link
-                  to="/contacto"
-                  className="inline-flex items-center gap-2 px-8 py-4 bg-white/10 backdrop-blur-sm border border-white/20 text-white font-semibold rounded-lg hover:bg-white hover:text-primary transition-all duration-300"
-                >
-                  Solicitar cotización
-                </Link>
-              </div>
-            </div>
-
-            {/* Right - Featured Image */}
-            <div className="hidden lg:block">
-              <div className="relative">
-                <img
-                  src="/images/cliente-5.jpg"
-                  alt="Force Perú en acción"
-                  className="w-full h-[500px] object-cover rounded-2xl shadow-2xl"
-                />
-                <div className="absolute -bottom-6 -left-6 bg-white rounded-xl p-6 shadow-xl">
-                  <div className="flex items-center gap-4">
-                    <div className="w-14 h-14 bg-success/10 rounded-full flex items-center justify-center">
-                      <Icon name="verified" size="lg" className="text-success" />
-                    </div>
-                    <div>
-                      <p className="font-display font-bold text-text text-lg">Empresa Certificada</p>
-                      <p className="text-text-muted text-sm">ISO 9001 | DIGESA | SUCAMEC</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+        {/* Scroll indicator */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-float">
+          <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center">
+            <div className="w-1.5 h-3 bg-white/70 rounded-full mt-2 animate-slide-up" />
           </div>
         </div>
       </section>
@@ -128,11 +102,11 @@ export function HomePage() {
             {stats.map((stat, index) => (
               <div
                 key={stat.label}
-                className={`py-8 lg:py-10 text-center ${
+                className={`py-8 lg:py-10 text-center reveal reveal-delay-${index + 1} ${
                   index < stats.length - 1 ? 'border-r border-border' : ''
                 }`}
               >
-                <div className="text-4xl lg:text-5xl font-display font-bold text-primary mb-1">
+                <div className="text-4xl lg:text-5xl font-display font-bold text-primary mb-1 text-gradient-animate">
                   {stat.value}
                 </div>
                 <div className="text-text font-semibold">{stat.label}</div>
@@ -146,7 +120,7 @@ export function HomePage() {
       {/* Services Grid - Prosegur Style */}
       <section className="py-20 lg:py-28 bg-bg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <div className="text-center mb-16 reveal">
             <h2 className="text-3xl lg:text-4xl font-display font-bold text-text mb-4">
               Nuestras áreas de negocio
             </h2>
@@ -156,11 +130,11 @@ export function HomePage() {
           </div>
 
           <div className="grid md:grid-cols-2 gap-6">
-            {services.map((service) => (
+            {services.map((service, index) => (
               <Link
                 key={service.title}
                 to={service.href}
-                className="group relative overflow-hidden rounded-2xl bg-white shadow-sm hover:shadow-xl transition-all duration-500"
+                className={`group relative overflow-hidden rounded-2xl bg-white shadow-sm service-card reveal reveal-delay-${index + 1}`}
               >
                 {/* Image */}
                 <div className="relative h-72 overflow-hidden">
@@ -175,7 +149,7 @@ export function HomePage() {
                 {/* Content Overlay */}
                 <div className="absolute bottom-0 left-0 right-0 p-6">
                   <div className="flex items-start gap-4">
-                    <div className="w-14 h-14 bg-secondary rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg">
+                    <div className="w-14 h-14 bg-secondary rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg group-hover:scale-110 transition-transform duration-300">
                       <Icon name={service.icon} size="lg" className="text-white" />
                     </div>
                     <div className="flex-1">
@@ -186,7 +160,7 @@ export function HomePage() {
                         {service.description}
                       </p>
                     </div>
-                    <div className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center group-hover:bg-secondary transition-colors">
+                    <div className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center group-hover:bg-secondary group-hover:translate-x-1 transition-all duration-300">
                       <Icon name="arrow_forward" size="sm" className="text-white" />
                     </div>
                   </div>
@@ -198,46 +172,54 @@ export function HomePage() {
       </section>
 
       {/* About Section */}
-      <section className="py-20 lg:py-28 bg-white">
+      <section className="py-20 lg:py-28 bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Image Grid */}
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 gap-4 reveal-left">
               <div className="space-y-4">
-                <img
-                  src="/images/cliente-1.jpg"
-                  alt="Force Perú"
-                  className="w-full h-48 object-cover rounded-xl"
-                />
-                <img
-                  src="/images/cliente-2.jpg"
-                  alt="Force Perú"
-                  className="w-full h-64 object-cover rounded-xl"
-                />
+                <div className="img-zoom rounded-xl overflow-hidden">
+                  <img
+                    src="/images/cliente-1.jpg"
+                    alt="Force Perú"
+                    className="w-full h-48 object-cover"
+                  />
+                </div>
+                <div className="img-zoom rounded-xl overflow-hidden">
+                  <img
+                    src="/images/cliente-2.jpg"
+                    alt="Force Perú"
+                    className="w-full h-64 object-cover"
+                  />
+                </div>
               </div>
               <div className="space-y-4 pt-8">
-                <img
-                  src="/images/cliente-3.jpg"
-                  alt="Force Perú"
-                  className="w-full h-64 object-cover rounded-xl"
-                />
-                <img
-                  src="/images/cliente-4.jpg"
-                  alt="Force Perú"
-                  className="w-full h-48 object-cover rounded-xl"
-                />
+                <div className="img-zoom rounded-xl overflow-hidden">
+                  <img
+                    src="/images/cliente-3.jpg"
+                    alt="Force Perú"
+                    className="w-full h-64 object-cover"
+                  />
+                </div>
+                <div className="img-zoom rounded-xl overflow-hidden">
+                  <img
+                    src="/images/cliente-4.jpg"
+                    alt="Force Perú"
+                    className="w-full h-48 object-cover"
+                  />
+                </div>
               </div>
             </div>
 
             {/* Content */}
-            <div>
+            <div className="reveal-right">
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-secondary/10 text-secondary rounded-full text-sm font-medium mb-6">
                 <Icon name="info" size="sm" />
                 Sobre Nosotros
               </div>
 
               <h2 className="text-3xl lg:text-4xl font-display font-bold text-text mb-6">
-                Somos <span className="text-secondary">Force Perú</span>
+                Somos <span className="text-gradient-animate">Force Perú</span>
               </h2>
 
               <p className="text-text-muted text-lg leading-relaxed mb-6">
@@ -253,20 +235,37 @@ export function HomePage() {
               </p>
 
               {/* Certifications */}
-              <div className="grid grid-cols-4 gap-4 mb-8">
-                {certifications.map((cert) => (
-                  <div key={cert.name} className="text-center">
-                    <div className="w-14 h-14 bg-bg rounded-xl flex items-center justify-center mx-auto mb-2">
-                      <Icon name={cert.icon} size="md" className="text-secondary" />
-                    </div>
-                    <span className="text-xs font-medium text-text-muted">{cert.name}</span>
+              <div className="flex items-center justify-between gap-4 mb-8">
+                {certifications.map((cert, index) => (
+                  <div key={cert.name} className={`text-center reveal reveal-delay-${index + 1} flex-1`}>
+                    {cert.image ? (
+                      <a
+                        href={cert.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center justify-center"
+                      >
+                        <img
+                          src={cert.image}
+                          alt={cert.name}
+                          className="h-14 w-auto object-contain hover:scale-105 transition-transform cursor-pointer"
+                        />
+                      </a>
+                    ) : (
+                      <>
+                        <div className="w-12 h-12 bg-bg rounded-xl flex items-center justify-center mx-auto mb-1 icon-bounce cursor-pointer hover:bg-secondary/10 transition-colors">
+                          <Icon name={cert.icon!} size="sm" className="text-secondary" />
+                        </div>
+                        <span className="text-[10px] font-medium text-text-muted">{cert.name}</span>
+                      </>
+                    )}
                   </div>
                 ))}
               </div>
 
               <Link
                 to="/nosotros"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-white font-semibold rounded-lg hover:bg-primary-light transition-colors"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-white font-semibold rounded-lg hover:bg-primary-light transition-colors btn-shine"
               >
                 Conoce más sobre nosotros
                 <Icon name="arrow_forward" size="sm" />
@@ -278,23 +277,24 @@ export function HomePage() {
 
       {/* CTA Section */}
       <section className="py-20 lg:py-28 bg-primary relative overflow-hidden">
+        {/* Animated background */}
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 left-0 w-96 h-96 bg-secondary rounded-full blur-3xl" />
-          <div className="absolute bottom-0 right-0 w-96 h-96 bg-secondary rounded-full blur-3xl" />
+          <div className="absolute top-0 left-0 w-96 h-96 bg-secondary rounded-full blur-3xl animate-float" />
+          <div className="absolute bottom-0 right-0 w-96 h-96 bg-secondary rounded-full blur-3xl animate-float" style={{ animationDelay: '3s' }} />
         </div>
 
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl lg:text-4xl font-display font-bold text-white mb-6">
+          <h2 className="text-3xl lg:text-4xl font-display font-bold text-white mb-6 reveal">
             ¿Listo para proteger lo que más importa?
           </h2>
-          <p className="text-xl text-white/70 mb-10 max-w-2xl mx-auto">
+          <p className="text-xl text-white/70 mb-10 max-w-2xl mx-auto reveal reveal-delay-1">
             Contáctanos hoy y recibe una cotización gratuita. Nuestro equipo está listo para asesorarte.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center reveal reveal-delay-2">
             <Link
               to="/contacto"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-primary font-semibold rounded-lg hover:bg-white/90 transition-colors"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-primary font-semibold rounded-lg hover:bg-white/90 transition-colors btn-shine"
             >
               <Icon name="mail" size="sm" />
               Solicitar cotización
@@ -303,7 +303,7 @@ export function HomePage() {
               href="https://wa.me/51999925132"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-success text-white font-semibold rounded-lg hover:bg-success-light transition-colors"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-success text-white font-semibold rounded-lg hover:bg-success-light transition-colors btn-shine"
             >
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
@@ -313,12 +313,12 @@ export function HomePage() {
           </div>
 
           {/* Contact Info */}
-          <div className="mt-12 flex flex-wrap justify-center gap-8">
-            <a href="tel:+5117646953" className="flex items-center gap-2 text-white/70 hover:text-white transition-colors">
+          <div className="mt-12 flex flex-wrap justify-center gap-8 reveal reveal-delay-3">
+            <a href="tel:+5117646953" className="flex items-center gap-2 text-white/70 hover:text-white transition-colors icon-bounce">
               <Icon name="phone" size="sm" className="text-secondary" />
               (01) 764 6953
             </a>
-            <a href="tel:+51986536939" className="flex items-center gap-2 text-white/70 hover:text-white transition-colors">
+            <a href="tel:+51986536939" className="flex items-center gap-2 text-white/70 hover:text-white transition-colors icon-bounce">
               <Icon name="phone" size="sm" className="text-secondary" />
               986 536 939
             </a>
@@ -333,9 +333,9 @@ export function HomePage() {
       {/* Verification CTA */}
       <section className="py-12 bg-bg border-t border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-6 reveal">
             <div className="flex items-center gap-4">
-              <div className="w-14 h-14 bg-secondary/10 rounded-xl flex items-center justify-center">
+              <div className="w-14 h-14 bg-secondary/10 rounded-xl flex items-center justify-center icon-bounce">
                 <Icon name="qr_code_scanner" size="lg" className="text-secondary" />
               </div>
               <div>
@@ -345,7 +345,7 @@ export function HomePage() {
             </div>
             <Link
               to="/verificar"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-secondary text-white font-semibold rounded-lg hover:bg-secondary-light transition-colors"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-secondary text-white font-semibold rounded-lg hover:bg-secondary-light transition-colors btn-shine"
             >
               <Icon name="verified" size="sm" />
               Verificar Certificado

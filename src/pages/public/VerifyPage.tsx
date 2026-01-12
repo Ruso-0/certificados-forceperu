@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useParams, Link } from 'react-router-dom'
+import { useParams, Link, useNavigate } from 'react-router-dom'
 import { useCertificateByCode } from '../../hooks/useCertificates'
 import { supabase } from '../../lib/supabase'
 import { Icon } from '../../components/ui'
@@ -8,8 +8,10 @@ import { formatDate } from '../../lib/utils'
 
 export function VerifyPage() {
   const { codigo } = useParams<{ codigo: string }>()
+  const navigate = useNavigate()
+  const [inputCode, setInputCode] = useState('')
   const { certificate, loading, error } = useCertificateByCode(codigo || '')
-  const [showAnimation, setShowAnimation] = useState(true)
+  const [showAnimation, setShowAnimation] = useState(!!codigo)
 
   // Log verification attempt
   useEffect(() => {
@@ -33,11 +35,111 @@ export function VerifyPage() {
 
   // Finish animation after delay
   useEffect(() => {
-    if (!loading) {
+    if (codigo && !loading) {
       const timer = setTimeout(() => setShowAnimation(false), 1200)
       return () => clearTimeout(timer)
     }
-  }, [loading])
+  }, [codigo, loading])
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    if (inputCode.trim()) {
+      navigate(`/verificar/${inputCode.trim().toUpperCase()}`)
+    }
+  }
+
+  // Si no hay código, mostrar formulario de búsqueda
+  if (!codigo) {
+    return (
+      <div className="min-h-screen bg-bg py-12 px-4">
+        <div className="max-w-md mx-auto">
+          {/* Header */}
+          <div className="text-center mb-8">
+            <Link to="/" className="inline-block">
+              <img
+                src="/images/logo-force-peru.png"
+                alt="Force Peru"
+                className="h-14 mx-auto mb-3"
+              />
+            </Link>
+            <h1 className="font-display text-2xl font-bold text-text">
+              Verificar Certificado
+            </h1>
+            <p className="text-text-muted mt-2">
+              Ingresa el código de verificación para validar la autenticidad del certificado
+            </p>
+          </div>
+
+          {/* Search Form */}
+          <div className="bg-surface rounded-xl border border-border shadow-sm p-6">
+            <form onSubmit={handleSubmit}>
+              <div className="mb-4">
+                <label htmlFor="code" className="block text-sm font-medium text-text mb-2">
+                  Código de Verificación
+                </label>
+                <div className="relative">
+                  <input
+                    id="code"
+                    type="text"
+                    value={inputCode}
+                    onChange={(e) => setInputCode(e.target.value.toUpperCase())}
+                    placeholder="Ej: FP-2024-XXXXX"
+                    className="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-secondary/20 focus:border-secondary transition-colors font-mono text-lg tracking-wider"
+                    autoComplete="off"
+                  />
+                  <div className="absolute right-3 top-1/2 -translate-y-1/2">
+                    <Icon name="qr_code_scanner" size="md" className="text-text-light" />
+                  </div>
+                </div>
+              </div>
+
+              <button
+                type="submit"
+                disabled={!inputCode.trim()}
+                className="w-full py-3 bg-secondary text-white font-semibold rounded-lg hover:bg-secondary-light transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+              >
+                <Icon name="verified" size="sm" />
+                Verificar Certificado
+              </button>
+            </form>
+
+            <div className="mt-6 pt-6 border-t border-border">
+              <p className="text-text-muted text-sm text-center mb-4">
+                ¿Eres administrador de Force Perú?
+              </p>
+              <Link
+                to="/intranet"
+                className="w-full py-3 bg-primary text-white font-semibold rounded-lg hover:bg-primary-light transition-colors flex items-center justify-center gap-2"
+              >
+                <Icon name="admin_panel_settings" size="sm" />
+                Acceder a Intranet
+              </Link>
+            </div>
+          </div>
+
+          {/* Info */}
+          <div className="mt-6 bg-info/10 border border-info/20 rounded-lg p-4">
+            <h3 className="font-medium text-info mb-2 flex items-center gap-2 text-sm">
+              <Icon name="info" size="sm" />
+              ¿Dónde encuentro el código?
+            </h3>
+            <p className="text-text-muted text-sm">
+              El código de verificación se encuentra en la parte inferior de tu certificado,
+              junto al código QR. Tiene el formato: <span className="font-mono text-secondary">FP-XXXX-XXXXX</span>
+            </p>
+          </div>
+
+          {/* Footer */}
+          <div className="text-center mt-8">
+            <Link to="/" className="text-secondary hover:text-secondary-light text-sm transition-colors inline-flex items-center gap-1">
+              <Icon name="arrow_back" size="xs" />
+              Volver al inicio
+            </Link>
+          </div>
+        </div>
+      </div>
+    )
+  }
 
   if (loading || showAnimation) {
     return (
@@ -117,13 +219,22 @@ export function VerifyPage() {
               </ul>
             </div>
 
-            <Link
-              to="/contacto"
-              className="w-full py-3 bg-primary text-white font-medium rounded-md hover:bg-primary-light transition-colors flex items-center justify-center gap-2"
-            >
-              <Icon name="support_agent" size="sm" />
-              Contactar Soporte
-            </Link>
+            <div className="space-y-3">
+              <Link
+                to="/verificar"
+                className="w-full py-3 bg-secondary text-white font-medium rounded-md hover:bg-secondary-light transition-colors flex items-center justify-center gap-2"
+              >
+                <Icon name="search" size="sm" />
+                Intentar con otro código
+              </Link>
+              <Link
+                to="/contacto"
+                className="w-full py-3 bg-primary text-white font-medium rounded-md hover:bg-primary-light transition-colors flex items-center justify-center gap-2"
+              >
+                <Icon name="support_agent" size="sm" />
+                Contactar Soporte
+              </Link>
+            </div>
           </div>
 
           {/* Footer */}

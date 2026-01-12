@@ -16,27 +16,20 @@ export function ServiceCard({ title, description, image, href, delay = 0 }: Serv
       style={{ animationDelay: `${delay}ms` }}
     >
       {/* Image */}
-      <div className="relative h-48 overflow-hidden">
+      <div className="relative h-56 overflow-hidden">
         <img
           src={image}
           alt={title}
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+          className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-110"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
       </div>
 
       {/* Content */}
       <div className="p-6">
-        <div className="flex items-start gap-2 mb-2">
-          <div className="w-1 h-8 bg-brand rounded-full" />
-          <h3 className="text-lg font-bold text-brand-navy group-hover:text-brand transition-colors">
-            {title.split(' ').map((word, i) => (
-              <span key={i} className="block leading-tight">
-                {word}
-              </span>
-            ))}
-          </h3>
-        </div>
+        <h3 className="text-xl font-bold text-brand-navy group-hover:text-brand transition-colors mb-3">
+          {title}
+        </h3>
         <p className="text-gray-600 text-sm line-clamp-3">
           {description}
         </p>

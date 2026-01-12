@@ -6,25 +6,25 @@ const services = [
   {
     title: 'Saneamiento Ambiental',
     description: 'Brindamos servicios de control de plagas, fumigación, desratización, desinsectación y desinfección con productos eco-amigables de última generación que garantizan resultados efectivos sin dañar el medio ambiente.',
-    image: '/images/service-saneamiento.jpg',
+    image: '/images/saneamiento-ambiental.jpg',
     href: '/servicios/saneamiento-ambiental',
   },
   {
     title: 'Seguridad Integral',
     description: 'Ofrecemos servicios de vigilancia privada, resguardo personal, protección patrimonial y seguridad corporativa con personal altamente capacitado y equipamiento de última tecnología.',
-    image: '/images/service-seguridad.jpg',
+    image: '/images/seguridad-integral.jpg',
     href: '/servicios/seguridad-integral',
   },
   {
     title: 'Capacitación y Entrenamiento',
     description: 'Programas de formación profesional en seguridad, gestión de riesgos de desastres, primeros auxilios, defensa personal y manejo de emergencias con certificación oficial.',
-    image: '/images/service-capacitacion.jpg',
+    image: '/images/capacitacion.jpg',
     href: '/servicios/capacitacion',
   },
   {
     title: 'Limpieza de Ambientes',
     description: 'Servicios profesionales de limpieza integral para oficinas, industrias, comercios y edificios. Utilizamos equipos y productos de alta calidad para garantizar espacios impecables.',
-    image: '/images/service-limpieza.jpg',
+    image: '/images/limpieza.jpg',
     href: '/servicios/limpieza',
   },
 ]

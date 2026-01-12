@@ -51,7 +51,7 @@ export function LoginForm() {
           <Link to="/" className="inline-block group">
             <div className="w-20 h-20 bg-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center mx-auto mb-4 border border-white/20 shadow-xl group-hover:scale-105 transition-transform">
               <img
-                src="/images/logo-force-peru.avif"
+                src="/images/logo-force-peru.png"
                 alt="Force Peru"
                 className="w-14 h-14 object-contain"
               />

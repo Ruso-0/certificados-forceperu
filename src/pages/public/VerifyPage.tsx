@@ -88,7 +88,7 @@ export function VerifyPage() {
           <div className="text-center mb-8">
             <Link to="/" className="inline-block group">
               <img
-                src="/images/logo-force-peru.avif"
+                src="/images/logo-force-peru.png"
                 alt="Force Peru"
                 className="h-16 mx-auto mb-4 group-hover:scale-105 transition-transform"
               />
@@ -175,7 +175,7 @@ export function VerifyPage() {
         <div className="text-center mb-8 animate-slide-in-up">
           <Link to="/" className="inline-block group">
             <img
-              src="/images/logo-force-peru.avif"
+              src="/images/logo-force-peru.png"
               alt="Force Peru"
               className="h-14 mx-auto mb-3 group-hover:scale-105 transition-transform"
             />

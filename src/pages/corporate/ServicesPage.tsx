@@ -141,7 +141,7 @@ export function ServicesPage() {
               SOLICITAR COTIZACIÓN
             </Link>
             <a
-              href="https://wa.me/51999925132"
+              href="https://wa.me/51907544736"
               target="_blank"
               rel="noopener noreferrer"
               className="px-8 py-3 bg-green-500 text-white font-semibold rounded-md hover:bg-green-600 transition-colors flex items-center justify-center gap-2"

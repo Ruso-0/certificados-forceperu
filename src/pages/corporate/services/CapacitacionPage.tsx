@@ -142,7 +142,7 @@ export function CapacitacionPage() {
                     Consultar
                   </Link>
                   <a
-                    href="https://wa.me/51999925132?text=Hola,%20me%20interesa%20información%20sobre%20los%20cursos%20de%20capacitación"
+                    href="https://wa.me/51907544736?text=Hola,%20me%20interesa%20información%20sobre%20los%20cursos%20de%20capacitación"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="px-6 py-2.5 bg-success text-white font-medium rounded-md hover:bg-success-light transition-colors text-center flex items-center justify-center gap-2"

@@ -300,7 +300,7 @@ export function HomePage() {
               Solicitar cotización
             </Link>
             <a
-              href="https://wa.me/51999925132"
+              href="https://wa.me/51907544736"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-success text-white font-semibold rounded-lg hover:bg-success-light transition-colors btn-shine"
@@ -314,13 +314,9 @@ export function HomePage() {
 
           {/* Contact Info */}
           <div className="mt-12 flex flex-wrap justify-center gap-8 reveal reveal-delay-3">
-            <a href="tel:+5117646953" className="flex items-center gap-2 text-white/70 hover:text-white transition-colors icon-bounce">
+            <a href="tel:+51907544736" className="flex items-center gap-2 text-white/70 hover:text-white transition-colors icon-bounce">
               <Icon name="phone" size="sm" className="text-secondary" />
-              (01) 764 6953
-            </a>
-            <a href="tel:+51986536939" className="flex items-center gap-2 text-white/70 hover:text-white transition-colors icon-bounce">
-              <Icon name="phone" size="sm" className="text-secondary" />
-              986 536 939
+              907 544 736
             </a>
             <span className="flex items-center gap-2 text-white/70">
               <Icon name="schedule" size="sm" className="text-secondary" />

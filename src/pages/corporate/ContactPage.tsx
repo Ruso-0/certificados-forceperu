@@ -220,12 +220,9 @@ export function ContactPage() {
                     <Icon name="phone" size="lg" className="text-sky-600" />
                   </div>
                   <div>
-                    <h3 className="font-display font-bold text-brand-900 mb-1">Telefonos</h3>
+                    <h3 className="font-display font-bold text-brand-900 mb-1">Teléfono</h3>
                     <p className="text-brand-600">
-                      <a href="tel:+5117646953" className="hover:text-sky-600 transition-colors">(01) 764 6953</a>
-                    </p>
-                    <p className="text-brand-600">
-                      <a href="tel:+51986536939" className="hover:text-sky-600 transition-colors">986 536 939</a>
+                      <a href="tel:+51907544736" className="hover:text-sky-600 transition-colors">907 544 736</a>
                     </p>
                   </div>
                 </div>
@@ -240,12 +237,12 @@ export function ContactPage() {
                   <div>
                     <h3 className="font-display font-bold text-brand-900 mb-1">WhatsApp</h3>
                     <a
-                      href="https://wa.me/51999925132"
+                      href="https://wa.me/51907544736"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-green-600 hover:text-green-700 font-medium text-lg"
                     >
-                      999 925 132
+                      907 544 736
                     </a>
                     <p className="text-brand-500 text-sm mt-1">Respuesta inmediata</p>
                   </div>
@@ -291,7 +288,7 @@ export function ContactPage() {
                     </svg>
                   </a>
                   <a
-                    href="https://wa.me/51999925132"
+                    href="https://wa.me/51907544736"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-12 h-12 bg-green-500 rounded-xl flex items-center justify-center text-white hover:bg-green-600 transition-colors"

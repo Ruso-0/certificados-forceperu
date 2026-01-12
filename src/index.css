@@ -273,6 +273,12 @@ body {
   100% { left: 100%; opacity: 0; }
 }
 
+/* Loading progress bar */
+@keyframes loading {
+  from { width: 0%; }
+  to { width: 100%; }
+}
+
 /* Fire flicker for certificates */
 @keyframes fire-flicker {
   0%, 100% {

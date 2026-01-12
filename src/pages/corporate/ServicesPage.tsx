@@ -59,10 +59,10 @@ export function ServicesPage() {
       <section className="py-16 lg:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-brand text-2xl lg:text-3xl font-bold mb-4">
+            <h2 className="text-secondary text-2xl lg:text-3xl font-bold mb-4">
               SERVICIOS
             </h2>
-            <div className="w-16 h-1 bg-brand mx-auto mb-6" />
+            <div className="w-16 h-1 bg-secondary mx-auto mb-6" />
             <p className="text-gray-600 max-w-2xl mx-auto">
               Ofrecemos soluciones integrales en seguridad y saneamiento ambiental
               con los más altos estándares de calidad.
@@ -85,39 +85,39 @@ export function ServicesPage() {
       <section className="py-16 lg:py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-brand text-2xl lg:text-3xl font-bold mb-4">
+            <h2 className="text-secondary text-2xl lg:text-3xl font-bold mb-4">
               ¿Por qué elegirnos?
             </h2>
-            <div className="w-16 h-1 bg-brand mx-auto" />
+            <div className="w-16 h-1 bg-secondary mx-auto" />
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="text-center">
-              <div className="w-16 h-16 bg-brand rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 bg-secondary rounded-full flex items-center justify-center mx-auto mb-4">
                 <Icon name="verified" size="lg" className="text-white" />
               </div>
-              <h3 className="font-bold text-brand-navy mb-2">Experiencia</h3>
+              <h3 className="font-bold text-primary mb-2">Experiencia</h3>
               <p className="text-gray-600 text-sm">Más de 12 años en el mercado</p>
             </div>
             <div className="text-center">
-              <div className="w-16 h-16 bg-brand rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 bg-secondary rounded-full flex items-center justify-center mx-auto mb-4">
                 <Icon name="groups" size="lg" className="text-white" />
               </div>
-              <h3 className="font-bold text-brand-navy mb-2">Personal Calificado</h3>
+              <h3 className="font-bold text-primary mb-2">Personal Calificado</h3>
               <p className="text-gray-600 text-sm">Equipo altamente capacitado</p>
             </div>
             <div className="text-center">
-              <div className="w-16 h-16 bg-brand rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 bg-secondary rounded-full flex items-center justify-center mx-auto mb-4">
                 <Icon name="eco" size="lg" className="text-white" />
               </div>
-              <h3 className="font-bold text-brand-navy mb-2">Eco-Amigable</h3>
+              <h3 className="font-bold text-primary mb-2">Eco-Amigable</h3>
               <p className="text-gray-600 text-sm">Productos que cuidan el ambiente</p>
             </div>
             <div className="text-center">
-              <div className="w-16 h-16 bg-brand rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 bg-secondary rounded-full flex items-center justify-center mx-auto mb-4">
                 <Icon name="support_agent" size="lg" className="text-white" />
               </div>
-              <h3 className="font-bold text-brand-navy mb-2">Soporte 24/7</h3>
+              <h3 className="font-bold text-primary mb-2">Soporte 24/7</h3>
               <p className="text-gray-600 text-sm">Siempre disponibles para ti</p>
             </div>
           </div>
@@ -125,7 +125,7 @@ export function ServicesPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 bg-brand">
+      <section className="py-16 bg-secondary">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-2xl lg:text-3xl font-bold text-white mb-4">
             ¿Necesitas una cotización?
@@ -136,7 +136,7 @@ export function ServicesPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               to="/contacto"
-              className="px-8 py-3 bg-white text-brand font-semibold rounded-md hover:bg-gray-100 transition-colors"
+              className="px-8 py-3 bg-white text-secondary font-semibold rounded-md hover:bg-gray-100 transition-colors"
             >
               SOLICITAR COTIZACIÓN
             </Link>

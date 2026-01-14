@@ -17,8 +17,26 @@ export function ContactPage() {
     e.preventDefault()
     setIsSubmitting(true)
 
-    // Simular envio
-    await new Promise(resolve => setTimeout(resolve, 1500))
+    // Construir mensaje de WhatsApp
+    const serviceName = formData.service ? {
+      'saneamiento': 'Saneamiento Ambiental',
+      'seguridad': 'Seguridad Integral',
+      'capacitacion': 'Capacitación y Entrenamiento',
+      'limpieza': 'Limpieza de Ambientes',
+      'otro': 'Otro'
+    }[formData.service] || formData.service : 'No especificado'
+
+    const message = encodeURIComponent(
+      `*Nuevo mensaje de contacto*\n\n` +
+      `*Nombre:* ${formData.name}\n` +
+      `*Email:* ${formData.email}\n` +
+      `*Teléfono:* ${formData.phone || 'No proporcionado'}\n` +
+      `*Servicio:* ${serviceName}\n\n` +
+      `*Mensaje:*\n${formData.message}`
+    )
+
+    // Abrir WhatsApp con el mensaje
+    window.open(`https://wa.me/51907544736?text=${message}`, '_blank')
 
     setIsSubmitting(false)
     setSubmitted(true)
@@ -34,8 +52,8 @@ export function ContactPage() {
   return (
     <div>
       {/* Hero Banner */}
-      <section className="relative h-[300px] lg:h-[400px] bg-brand-900">
-        <div className="absolute inset-0 bg-gradient-to-r from-brand-900 via-brand-900/95 to-brand-800" />
+      <section className="relative h-[300px] lg:h-[400px] bg-primary">
+        <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/95 to-primary/80" />
         <div className="absolute inset-0">
           <div className="absolute top-0 right-0 w-96 h-96 bg-sky-500/10 rounded-full blur-3xl" />
           <div className="absolute bottom-0 left-0 w-64 h-64 bg-accent-500/10 rounded-full blur-3xl" />
@@ -57,12 +75,12 @@ export function ContactPage() {
       </section>
 
       {/* Breadcrumb */}
-      <div className="bg-brand-100 py-4">
+      <div className="bg-slate-100 py-4">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <nav className="flex items-center gap-2 text-sm">
-            <Link to="/" className="text-sky-600 hover:text-sky-700 font-medium">Inicio</Link>
-            <Icon name="chevron_right" size="xs" className="text-brand-400" />
-            <span className="text-brand-600">Contacto</span>
+            <Link to="/" className="text-secondary hover:text-secondary/80 font-medium">Inicio</Link>
+            <Icon name="chevron_right" size="xs" className="text-slate-400" />
+            <span className="text-slate-600">Contacto</span>
           </nav>
         </div>
       </div>
@@ -77,11 +95,11 @@ export function ContactPage() {
                 <Icon name="edit" size="sm" />
                 Formulario
               </span>
-              <h2 className="text-h2 text-brand-900 mb-4">
+              <h2 className="text-h2 text-primary mb-4">
                 Envianos un mensaje
               </h2>
               <div className="w-16 h-1.5 bg-gradient-to-r from-sky-500 to-accent-500 rounded-full mb-6" />
-              <p className="text-brand-600 mb-8">
+              <p className="text-slate-600 mb-8">
                 Completa el formulario y nos pondremos en contacto contigo lo antes posible.
               </p>
 
@@ -98,7 +116,7 @@ export function ContactPage() {
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-semibold text-brand-700 mb-2">
+                    <label htmlFor="name" className="block text-sm font-semibold text-slate-700 mb-2">
                       Nombre completo *
                     </label>
                     <input
@@ -108,14 +126,14 @@ export function ContactPage() {
                       required
                       value={formData.name}
                       onChange={handleChange}
-                      className="w-full px-4 py-3.5 border border-brand-200 rounded-xl focus:ring-2 focus:ring-sky-500 focus:border-transparent transition-all bg-white text-brand-900 placeholder:text-brand-400"
+                      className="w-full px-4 py-3.5 border border-slate-200 rounded-xl focus:ring-2 focus:ring-sky-500 focus:border-transparent transition-all bg-white text-primary placeholder:text-slate-400"
                       placeholder="Tu nombre"
                     />
                   </div>
 
                   <div className="grid sm:grid-cols-2 gap-6">
                     <div>
-                      <label htmlFor="email" className="block text-sm font-semibold text-brand-700 mb-2">
+                      <label htmlFor="email" className="block text-sm font-semibold text-slate-700 mb-2">
                         Email *
                       </label>
                       <input
@@ -125,12 +143,12 @@ export function ContactPage() {
                         required
                         value={formData.email}
                         onChange={handleChange}
-                        className="w-full px-4 py-3.5 border border-brand-200 rounded-xl focus:ring-2 focus:ring-sky-500 focus:border-transparent transition-all bg-white text-brand-900 placeholder:text-brand-400"
+                        className="w-full px-4 py-3.5 border border-slate-200 rounded-xl focus:ring-2 focus:ring-sky-500 focus:border-transparent transition-all bg-white text-primary placeholder:text-slate-400"
                         placeholder="tu@email.com"
                       />
                     </div>
                     <div>
-                      <label htmlFor="phone" className="block text-sm font-semibold text-brand-700 mb-2">
+                      <label htmlFor="phone" className="block text-sm font-semibold text-slate-700 mb-2">
                         Telefono
                       </label>
                       <input
@@ -139,14 +157,14 @@ export function ContactPage() {
                         name="phone"
                         value={formData.phone}
                         onChange={handleChange}
-                        className="w-full px-4 py-3.5 border border-brand-200 rounded-xl focus:ring-2 focus:ring-sky-500 focus:border-transparent transition-all bg-white text-brand-900 placeholder:text-brand-400"
+                        className="w-full px-4 py-3.5 border border-slate-200 rounded-xl focus:ring-2 focus:ring-sky-500 focus:border-transparent transition-all bg-white text-primary placeholder:text-slate-400"
                         placeholder="999 999 999"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label htmlFor="service" className="block text-sm font-semibold text-brand-700 mb-2">
+                    <label htmlFor="service" className="block text-sm font-semibold text-slate-700 mb-2">
                       Servicio de interes
                     </label>
                     <select
@@ -154,7 +172,7 @@ export function ContactPage() {
                       name="service"
                       value={formData.service}
                       onChange={handleChange}
-                      className="w-full px-4 py-3.5 border border-brand-200 rounded-xl focus:ring-2 focus:ring-sky-500 focus:border-transparent transition-all bg-white text-brand-900"
+                      className="w-full px-4 py-3.5 border border-slate-200 rounded-xl focus:ring-2 focus:ring-sky-500 focus:border-transparent transition-all bg-white text-primary"
                     >
                       <option value="">Selecciona un servicio</option>
                       <option value="saneamiento">Saneamiento Ambiental</option>
@@ -166,7 +184,7 @@ export function ContactPage() {
                   </div>
 
                   <div>
-                    <label htmlFor="message" className="block text-sm font-semibold text-brand-700 mb-2">
+                    <label htmlFor="message" className="block text-sm font-semibold text-slate-700 mb-2">
                       Mensaje *
                     </label>
                     <textarea
@@ -176,7 +194,7 @@ export function ContactPage() {
                       rows={5}
                       value={formData.message}
                       onChange={handleChange}
-                      className="w-full px-4 py-3.5 border border-brand-200 rounded-xl focus:ring-2 focus:ring-sky-500 focus:border-transparent transition-all bg-white text-brand-900 placeholder:text-brand-400 resize-none"
+                      className="w-full px-4 py-3.5 border border-slate-200 rounded-xl focus:ring-2 focus:ring-sky-500 focus:border-transparent transition-all bg-white text-primary placeholder:text-slate-400 resize-none"
                       placeholder="Cuentanos en que podemos ayudarte..."
                     />
                   </div>
@@ -208,20 +226,20 @@ export function ContactPage() {
                 <Icon name="contact_support" size="sm" />
                 Informacion
               </span>
-              <h2 className="text-h2 text-brand-900 mb-4">
+              <h2 className="text-h2 text-primary mb-4">
                 Informacion de contacto
               </h2>
               <div className="w-16 h-1.5 bg-gradient-to-r from-sky-500 to-accent-500 rounded-full mb-8" />
 
               <div className="space-y-4">
                 {/* Phone */}
-                <div className="flex items-start gap-4 p-5 bg-brand-50 rounded-2xl group hover:bg-sky-50 transition-colors">
+                <div className="flex items-start gap-4 p-5 bg-slate-50 rounded-2xl group hover:bg-sky-50 transition-colors">
                   <div className="w-14 h-14 bg-sky-100 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-sky-200 transition-colors">
                     <Icon name="phone" size="lg" className="text-sky-600" />
                   </div>
                   <div>
-                    <h3 className="font-display font-bold text-brand-900 mb-1">Teléfono</h3>
-                    <p className="text-brand-600">
+                    <h3 className="font-display font-bold text-primary mb-1">Teléfono</h3>
+                    <p className="text-slate-600">
                       <a href="tel:+51907544736" className="hover:text-sky-600 transition-colors">907 544 736</a>
                     </p>
                   </div>
@@ -235,7 +253,7 @@ export function ContactPage() {
                     </svg>
                   </div>
                   <div>
-                    <h3 className="font-display font-bold text-brand-900 mb-1">WhatsApp</h3>
+                    <h3 className="font-display font-bold text-primary mb-1">WhatsApp</h3>
                     <a
                       href="https://wa.me/51907544736"
                       target="_blank"
@@ -244,36 +262,36 @@ export function ContactPage() {
                     >
                       907 544 736
                     </a>
-                    <p className="text-brand-500 text-sm mt-1">Respuesta inmediata</p>
+                    <p className="text-slate-500 text-sm mt-1">Respuesta inmediata</p>
                   </div>
                 </div>
 
                 {/* Schedule */}
-                <div className="flex items-start gap-4 p-5 bg-brand-50 rounded-2xl group hover:bg-sky-50 transition-colors">
+                <div className="flex items-start gap-4 p-5 bg-slate-50 rounded-2xl group hover:bg-sky-50 transition-colors">
                   <div className="w-14 h-14 bg-sky-100 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-sky-200 transition-colors">
                     <Icon name="schedule" size="lg" className="text-sky-600" />
                   </div>
                   <div>
-                    <h3 className="font-display font-bold text-brand-900 mb-1">Horario de atencion</h3>
-                    <p className="text-brand-600">Lunes a Sabado</p>
-                    <p className="text-brand-600">9:00 a.m. - 7:00 p.m.</p>
+                    <h3 className="font-display font-bold text-primary mb-1">Horario de atencion</h3>
+                    <p className="text-slate-600">Lunes a Sabado</p>
+                    <p className="text-slate-600">9:00 a.m. - 7:00 p.m.</p>
                   </div>
                 </div>
 
                 {/* Location */}
-                <div className="flex items-start gap-4 p-5 bg-brand-50 rounded-2xl group hover:bg-sky-50 transition-colors">
+                <div className="flex items-start gap-4 p-5 bg-slate-50 rounded-2xl group hover:bg-sky-50 transition-colors">
                   <div className="w-14 h-14 bg-sky-100 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-sky-200 transition-colors">
                     <Icon name="location_on" size="lg" className="text-sky-600" />
                   </div>
                   <div>
-                    <h3 className="font-display font-bold text-brand-900 mb-1">Ubicacion</h3>
-                    <p className="text-brand-600">Lima, Peru</p>
+                    <h3 className="font-display font-bold text-primary mb-1">Ubicacion</h3>
+                    <p className="text-slate-600">Lima, Peru</p>
                   </div>
                 </div>
               </div>
 
               {/* Social */}
-              <div className="mt-8 p-6 bg-brand-900 rounded-2xl">
+              <div className="mt-8 p-6 bg-primary rounded-2xl">
                 <h3 className="font-display font-bold text-white mb-4">Siguenos</h3>
                 <div className="flex gap-3">
                   <a
@@ -306,7 +324,7 @@ export function ContactPage() {
       </section>
 
       {/* Map Section */}
-      <section className="h-[400px] bg-brand-200">
+      <section className="h-[400px] bg-slate-200">
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3901.9661244789773!2d-77.03654032395882!3d-12.046373541443892!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c8b5d35662c7%3A0x15f0f2ef5f3ad3d!2sLima!5e0!3m2!1sen!2spe!4v1704903600000!5m2!1sen!2spe"
           width="100%"

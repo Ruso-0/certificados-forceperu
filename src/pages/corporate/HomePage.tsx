@@ -1,7 +1,42 @@
 import { Link } from 'react-router-dom'
+import { useState, useEffect } from 'react'
 import { Icon } from '../../components/ui/Icon'
 import { ParticleNetwork } from '../../components/ui/ParticleNetwork'
 import { useScrollReveal } from '../../hooks/useScrollReveal'
+
+// Fecha objetivo del curso: 21 de enero 2026
+const COURSE_DATE = new Date('2026-01-21T09:00:00')
+
+function useCountdown(targetDate: Date) {
+  const [timeLeft, setTimeLeft] = useState({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0
+  })
+
+  useEffect(() => {
+    const calculateTimeLeft = () => {
+      const difference = targetDate.getTime() - new Date().getTime()
+
+      if (difference > 0) {
+        setTimeLeft({
+          days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+          hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+          minutes: Math.floor((difference / 1000 / 60) % 60),
+          seconds: Math.floor((difference / 1000) % 60)
+        })
+      }
+    }
+
+    calculateTimeLeft()
+    const timer = setInterval(calculateTimeLeft, 1000)
+
+    return () => clearInterval(timer)
+  }, [targetDate])
+
+  return timeLeft
+}
 
 const services = [
   {
@@ -38,15 +73,9 @@ const services = [
   },
 ]
 
-const certifications = [
-  { name: 'ISO 9001', icon: 'workspace_premium' },
-  { name: 'DIGESA', icon: 'verified' },
-  { name: 'SUCAMEC', image: '/images/logos/Logo-SUCAMEC.png', link: 'https://www.sucamec.gob.pe/sel/faces/pub/VerificadorWeb.xhtml' },
-  { name: 'INDECI', image: '/images/Logo_INDECI.png', link: 'https://portal.indeci.gob.pe/emergencias/' },
-]
-
 export function HomePage() {
   useScrollReveal()
+  const countdown = useCountdown(COURSE_DATE)
 
   return (
     <div>
@@ -92,6 +121,76 @@ export function HomePage() {
         </div>
       </section>
 
+      {/* Certifications Bar - Marquee Infinito */}
+      <section className="bg-white border-b border-border py-6 lg:py-8 overflow-hidden">
+        {/* Marquee Container */}
+        <div className="relative">
+          {/* Gradient Fade Left */}
+          <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
+          {/* Gradient Fade Right */}
+          <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
+
+          {/* Marquee Track - Hacia la derecha */}
+          <div className="flex animate-marquee-right">
+            {[...Array(4)].map((_, setIndex) => (
+              <div key={setIndex} className="flex items-center gap-24 lg:gap-32 px-12 shrink-0">
+                <a
+                  href="https://www.sucamec.gob.pe/sel/faces/pub/VerificadorWeb.xhtml"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center shrink-0 hover:scale-105 transition-transform"
+                >
+                  <img
+                    src="/images/logos/Logo-SUCAMEC.png"
+                    alt="SUCAMEC"
+                    className="h-20 lg:h-24 w-auto object-contain"
+                  />
+                </a>
+
+                <a
+                  href="https://www.digesa.minsa.gob.pe/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center shrink-0 hover:scale-105 transition-transform"
+                >
+                  <img
+                    src="/images/logos/Logo-DIGESA.png"
+                    alt="DIGESA"
+                    className="h-36 lg:h-40 w-auto object-contain"
+                  />
+                </a>
+
+                <a
+                  href="https://portal.indeci.gob.pe/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center shrink-0 hover:scale-105 transition-transform"
+                >
+                  <img
+                    src="/images/Logo_INDECI.png"
+                    alt="INDECI"
+                    className="h-20 lg:h-24 w-auto object-contain"
+                  />
+                </a>
+
+                <a
+                  href="https://www.iso.org/es/home/standards/committee-for-conformity-assessm/casco-1.html"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center shrink-0 hover:scale-105 transition-transform"
+                >
+                  <img
+                    src="/images/logos/Logo-ISO.gif"
+                    alt="ISO 9001"
+                    className="h-20 lg:h-24 w-auto object-contain"
+                  />
+                </a>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Promotional Banner - CURSO PMI */}
       <section className="relative py-16 lg:py-20 overflow-hidden bg-gradient-to-br from-primary via-[#0f1a2e] to-primary">
         {/* Animated Background Elements */}
@@ -126,16 +225,31 @@ export function HomePage() {
                 Formación de Agentes de Seguridad Privada
               </h3>
 
-              {/* Date Badge */}
-              <div className="inline-flex items-center gap-3 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl px-6 py-4 mb-8 animate-promo-date">
-                <div className="w-14 h-14 bg-accent rounded-lg flex flex-col items-center justify-center shadow-lg">
-                  <span className="text-2xl font-display font-bold text-primary leading-none">21</span>
-                  <span className="text-[10px] font-bold text-primary uppercase">ENE</span>
+              {/* Countdown Timer */}
+              <div className="mb-8 animate-promo-date">
+                <p className="text-white/70 text-sm mb-3 uppercase tracking-wider">Inicio de clases en:</p>
+                <div className="flex items-center justify-center lg:justify-start gap-3">
+                  <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl px-4 py-3 text-center min-w-[70px]">
+                    <span className="text-3xl lg:text-4xl font-display font-bold text-accent block">{countdown.days}</span>
+                    <span className="text-white/60 text-xs uppercase">Días</span>
+                  </div>
+                  <span className="text-accent text-2xl font-bold">:</span>
+                  <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl px-4 py-3 text-center min-w-[70px]">
+                    <span className="text-3xl lg:text-4xl font-display font-bold text-white block">{countdown.hours.toString().padStart(2, '0')}</span>
+                    <span className="text-white/60 text-xs uppercase">Horas</span>
+                  </div>
+                  <span className="text-accent text-2xl font-bold">:</span>
+                  <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl px-4 py-3 text-center min-w-[70px]">
+                    <span className="text-3xl lg:text-4xl font-display font-bold text-white block">{countdown.minutes.toString().padStart(2, '0')}</span>
+                    <span className="text-white/60 text-xs uppercase">Min</span>
+                  </div>
+                  <span className="text-accent text-2xl font-bold">:</span>
+                  <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl px-4 py-3 text-center min-w-[70px]">
+                    <span className="text-3xl lg:text-4xl font-display font-bold text-secondary block animate-pulse">{countdown.seconds.toString().padStart(2, '0')}</span>
+                    <span className="text-white/60 text-xs uppercase">Seg</span>
+                  </div>
                 </div>
-                <div className="text-left">
-                  <div className="text-white font-semibold">Inicio de Clases</div>
-                  <div className="text-white/70 text-sm">Enero 2026</div>
-                </div>
+                <p className="text-accent font-semibold mt-3">21 de Enero, 2026</p>
               </div>
 
               {/* Features Grid */}
@@ -342,35 +456,6 @@ export function HomePage() {
                 utilizando tecnología de punta y productos de primera calidad para garantizar
                 resultados óptimos en cada servicio.
               </p>
-
-              {/* Certifications */}
-              <div className="flex items-center justify-between gap-4 mb-8">
-                {certifications.map((cert, index) => (
-                  <div key={cert.name} className={`text-center reveal reveal-delay-${index + 1} flex-1`}>
-                    {cert.image ? (
-                      <a
-                        href={cert.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center justify-center"
-                      >
-                        <img
-                          src={cert.image}
-                          alt={cert.name}
-                          className="h-16 w-auto object-contain hover:scale-105 transition-transform cursor-pointer"
-                        />
-                      </a>
-                    ) : (
-                      <>
-                        <div className="w-12 h-12 bg-bg rounded-xl flex items-center justify-center mx-auto mb-1 icon-bounce cursor-pointer hover:bg-secondary/10 transition-colors">
-                          <Icon name={cert.icon!} size="sm" className="text-secondary" />
-                        </div>
-                        <span className="text-[10px] font-medium text-text-muted">{cert.name}</span>
-                      </>
-                    )}
-                  </div>
-                ))}
-              </div>
 
               <Link
                 to="/nosotros"

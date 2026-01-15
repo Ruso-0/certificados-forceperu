@@ -230,26 +230,26 @@ export function HomePage() {
                 <p className="text-white/70 text-sm mb-3 uppercase tracking-wider">Inicio de clases en:</p>
                 <div className="flex items-center justify-center lg:justify-start gap-3">
                   <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl px-4 py-3 text-center min-w-[70px]">
-                    <span className="text-3xl lg:text-4xl font-display font-bold text-accent block">{countdown.days}</span>
+                    <span className="text-3xl lg:text-4xl font-display font-bold text-white block">{countdown.days}</span>
                     <span className="text-white/60 text-xs uppercase">Días</span>
                   </div>
-                  <span className="text-accent text-2xl font-bold">:</span>
+                  <span className="text-white text-2xl font-bold">:</span>
                   <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl px-4 py-3 text-center min-w-[70px]">
                     <span className="text-3xl lg:text-4xl font-display font-bold text-white block">{countdown.hours.toString().padStart(2, '0')}</span>
                     <span className="text-white/60 text-xs uppercase">Horas</span>
                   </div>
-                  <span className="text-accent text-2xl font-bold">:</span>
+                  <span className="text-white text-2xl font-bold">:</span>
                   <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl px-4 py-3 text-center min-w-[70px]">
                     <span className="text-3xl lg:text-4xl font-display font-bold text-white block">{countdown.minutes.toString().padStart(2, '0')}</span>
                     <span className="text-white/60 text-xs uppercase">Min</span>
                   </div>
-                  <span className="text-accent text-2xl font-bold">:</span>
+                  <span className="text-white text-2xl font-bold">:</span>
                   <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl px-4 py-3 text-center min-w-[70px]">
-                    <span className="text-3xl lg:text-4xl font-display font-bold text-secondary block animate-pulse">{countdown.seconds.toString().padStart(2, '0')}</span>
+                    <span className="text-3xl lg:text-4xl font-display font-bold text-white block">{countdown.seconds.toString().padStart(2, '0')}</span>
                     <span className="text-white/60 text-xs uppercase">Seg</span>
                   </div>
                 </div>
-                <p className="text-accent font-semibold mt-3">21 de Enero, 2026</p>
+                <p className="text-white font-semibold mt-3">21 de Enero, 2026</p>
               </div>
 
               {/* Features Grid */}

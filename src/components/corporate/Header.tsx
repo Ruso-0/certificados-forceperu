@@ -3,10 +3,10 @@ import { Link, useLocation } from 'react-router-dom'
 import { Icon } from '../ui/Icon'
 
 const services = [
-  { name: 'Saneamiento Ambiental', href: '/servicios/saneamiento-ambiental', icon: 'pest_control', image: '/images/icons/saneamiento-icon.png' },
-  { name: 'Seguridad Integral', href: '/servicios/seguridad-integral', icon: 'security', image: '/images/icons/seguridad-icon.png' },
-  { name: 'Capacitación', href: '/servicios/capacitacion', icon: 'school', image: '/images/icons/capacitacion-icon.png' },
-  { name: 'Limpieza', href: '/servicios/limpieza', icon: 'cleaning_services', image: '/images/icons/limpieza-icon.png' },
+  { name: 'Saneamiento Ambiental', href: '/servicios/saneamiento-ambiental', icon: 'pest_control' },
+  { name: 'Seguridad Integral', href: '/servicios/seguridad-integral', icon: 'security' },
+  { name: 'Capacitación', href: '/servicios/capacitacion', icon: 'school' },
+  { name: 'Limpieza', href: '/servicios/limpieza', icon: 'cleaning_services' },
 ]
 
 const navItems = [
@@ -147,11 +147,7 @@ export function Header() {
                               }`}
                             >
                               <div className="w-10 h-10 bg-secondary/10 rounded-lg flex items-center justify-center transition-transform group-hover:scale-105">
-                                {service.image ? (
-                                  <img src={service.image} alt="" className="w-7 h-7 object-contain" />
-                                ) : (
-                                  <Icon name={service.icon} size="sm" className="text-secondary" />
-                                )}
+                                <Icon name={service.icon} size="sm" className="text-secondary" />
                               </div>
                               <span className="font-medium">{service.name}</span>
                             </Link>
@@ -234,11 +230,7 @@ export function Header() {
                                     : 'text-text-muted hover:text-secondary hover:bg-secondary/5'
                                 }`}
                               >
-                                {service.image ? (
-                                  <img src={service.image} alt="" className="w-6 h-6 object-contain" />
-                                ) : (
-                                  <Icon name={service.icon} size="sm" className="text-secondary" />
-                                )}
+                                <Icon name={service.icon} size="sm" className="text-secondary" />
                                 {service.name}
                               </Link>
                             ))}

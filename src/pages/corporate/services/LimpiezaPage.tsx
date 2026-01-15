@@ -192,21 +192,21 @@ export function LimpiezaPage() {
               to="/servicios/saneamiento-ambiental"
               className="p-4 bg-bg rounded-lg hover:bg-secondary/5 transition-colors flex items-center gap-3 border border-border"
             >
-              <img src="/images/icons/saneamiento-icon.png" alt="" className="w-7 h-7 object-contain" />
+              <Icon name="pest_control" className="text-secondary" />
               <span className="font-medium text-text">Saneamiento Ambiental</span>
             </Link>
             <Link
               to="/servicios/seguridad-integral"
               className="p-4 bg-bg rounded-lg hover:bg-secondary/5 transition-colors flex items-center gap-3 border border-border"
             >
-              <img src="/images/icons/seguridad-icon.png" alt="" className="w-7 h-7 object-contain" />
+              <Icon name="security" className="text-secondary" />
               <span className="font-medium text-text">Seguridad Integral</span>
             </Link>
             <Link
               to="/servicios/capacitacion"
               className="p-4 bg-bg rounded-lg hover:bg-secondary/5 transition-colors flex items-center gap-3 border border-border"
             >
-              <img src="/images/icons/capacitacion-icon.png" alt="" className="w-7 h-7 object-contain" />
+              <Icon name="school" className="text-secondary" />
               <span className="font-medium text-text">Capacitación</span>
             </Link>
           </div>

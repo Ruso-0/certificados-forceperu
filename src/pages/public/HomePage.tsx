@@ -624,6 +624,7 @@ export function HomePage() {
             {[
               {
                 icon: 'security',
+                iconImage: '/images/icons/seguridad-icon.png',
                 title: 'Seguridad Privada',
                 desc: 'Formación integral para agentes de vigilancia y protección patrimonial.',
                 accent: '#1a5fb4'
@@ -654,10 +655,14 @@ export function HomePage() {
                     backgroundColor: `${service.accent}10`,
                   }}
                 >
-                  <Icon
-                    name={service.icon}
-                    style={{ fontSize: '28px', color: service.accent }}
-                  />
+                  {service.iconImage ? (
+                    <img src={service.iconImage} alt="" className="w-7 h-7 object-contain" />
+                  ) : (
+                    <Icon
+                      name={service.icon}
+                      style={{ fontSize: '28px', color: service.accent }}
+                    />
+                  )}
                 </div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-3 tracking-tight">{service.title}</h3>
                 <p className="text-gray-500 leading-relaxed text-[15px]">{service.desc}</p>

@@ -192,21 +192,21 @@ export function SaneamientoPage() {
               to="/servicios/seguridad-integral"
               className="p-4 bg-bg rounded-lg hover:bg-secondary/5 transition-colors flex items-center gap-3 border border-border"
             >
-              <Icon name="security" className="text-secondary" />
+              <img src="/images/icons/seguridad-icon.png" alt="" className="w-7 h-7 object-contain" />
               <span className="font-medium text-text">Seguridad Integral</span>
             </Link>
             <Link
               to="/servicios/capacitacion"
               className="p-4 bg-bg rounded-lg hover:bg-secondary/5 transition-colors flex items-center gap-3 border border-border"
             >
-              <Icon name="school" className="text-secondary" />
+              <img src="/images/icons/capacitacion-icon.png" alt="" className="w-7 h-7 object-contain" />
               <span className="font-medium text-text">Capacitación</span>
             </Link>
             <Link
               to="/servicios/limpieza"
               className="p-4 bg-bg rounded-lg hover:bg-secondary/5 transition-colors flex items-center gap-3 border border-border"
             >
-              <Icon name="cleaning_services" className="text-secondary" />
+              <img src="/images/icons/limpieza-icon.png" alt="" className="w-7 h-7 object-contain" />
               <span className="font-medium text-text">Limpieza</span>
             </Link>
           </div>

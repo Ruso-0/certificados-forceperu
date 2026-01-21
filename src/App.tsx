@@ -28,6 +28,7 @@ import { CoursesPage } from './pages/admin/CoursesPage'
 import { VerifyPage } from './pages/public/VerifyPage'
 import { IntranetPage } from './pages/public/IntranetPage'
 import { DiplomadoInscripcionPage } from './pages/public/DiplomadoInscripcionPage'
+import { SeminarioVipPage } from './pages/public/SeminarioVipPage'
 
 import './index.css'
 
@@ -57,6 +58,9 @@ function App() {
 
           {/* Diplomado Invierte.pe - Inscripcion */}
           <Route path="/diplomado-invierte" element={<DiplomadoInscripcionPage />} />
+
+          {/* Seminario VIP - Proteccion de Personajes */}
+          <Route path="/seminario-vip" element={<SeminarioVipPage />} />
 
           {/* Auth routes */}
           <Route path="/admin/login" element={<LoginPage />} />

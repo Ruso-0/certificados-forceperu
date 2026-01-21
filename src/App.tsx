@@ -27,6 +27,7 @@ import { CoursesPage } from './pages/admin/CoursesPage'
 // Public Pages
 import { VerifyPage } from './pages/public/VerifyPage'
 import { IntranetPage } from './pages/public/IntranetPage'
+import { DiplomadoInscripcionPage } from './pages/public/DiplomadoInscripcionPage'
 
 import './index.css'
 
@@ -53,6 +54,9 @@ function App() {
 
           {/* Intranet - Login & QR Scanner */}
           <Route path="/intranet" element={<IntranetPage />} />
+
+          {/* Diplomado Invierte.pe - Inscripcion */}
+          <Route path="/diplomado-invierte" element={<DiplomadoInscripcionPage />} />
 
           {/* Auth routes */}
           <Route path="/admin/login" element={<LoginPage />} />

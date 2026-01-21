@@ -5,20 +5,15 @@ import { Link } from 'react-router-dom'
 // CONFIGURACION - CAMBIAR AQUI
 // ============================================
 const CONFIG = {
-  // Link de registro (Google Forms, Eventbrite, etc.)
-  REG_LINK: 'https://forms.google.com/tu-formulario-aqui',
-
   // WhatsApp
   WHATSAPP_NUMBER: '51907544736',
-  WHATSAPP_MESSAGE: 'Hola, quiero inscribirme al SEMINARIO VIP de Proteccion de Personajes Importantes',
 
   // Imagenes (colocar en /public/)
   LOGO: '/images/logo-force.png',
-  QR_IMAGE: '/images/qr-seminario-vip.png',
 }
 // ============================================
 
-const whatsappLink = `https://wa.me/${CONFIG.WHATSAPP_NUMBER}?text=${encodeURIComponent(CONFIG.WHATSAPP_MESSAGE)}`
+const whatsappLink = `https://wa.me/${CONFIG.WHATSAPP_NUMBER}?text=${encodeURIComponent('Hola, quiero informacion sobre el SEMINARIO VIP')}`
 
 // Iconos SVG inline
 const Icons = {
@@ -105,8 +100,47 @@ const Icons = {
   ),
 }
 
+interface FormData {
+  nombres: string
+  apellidos: string
+  dni: string
+  telefono: string
+  email: string
+}
+
 export function SeminarioVipPage() {
   const [faqOpen, setFaqOpen] = useState<number | null>(null)
+  const [formData, setFormData] = useState<FormData>({
+    nombres: '',
+    apellidos: '',
+    dni: '',
+    telefono: '',
+    email: '',
+  })
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target
+    setFormData(prev => ({ ...prev, [name]: value }))
+  }
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+
+    // Construir mensaje de WhatsApp con los datos del formulario
+    const message = `*INSCRIPCION SEMINARIO VIP*
+*Proteccion de Personajes Importantes*
+
+*Nombres:* ${formData.nombres}
+*Apellidos:* ${formData.apellidos}
+*DNI:* ${formData.dni}
+*Telefono:* ${formData.telefono}
+*Email:* ${formData.email}
+
+Solicito mi inscripcion al seminario.`
+
+    // Abrir WhatsApp con el mensaje
+    window.open(`https://wa.me/${CONFIG.WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`, '_blank')
+  }
 
   const faqs = [
     {
@@ -242,9 +276,7 @@ export function SeminarioVipPage() {
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href={CONFIG.REG_LINK}
-                target="_blank"
-                rel="noopener noreferrer"
+                href="#inscripcion"
                 className="group px-8 py-4 bg-gradient-to-r from-cyan-500 to-cyan-400 text-[#061526] font-bold text-lg rounded-xl hover:from-cyan-400 hover:to-cyan-300 transition-all shadow-lg shadow-cyan-500/30 hover:shadow-xl hover:shadow-cyan-500/40 hover:-translate-y-1"
                 aria-label="Inscribirse al seminario"
               >
@@ -336,9 +368,7 @@ export function SeminarioVipPage() {
           {/* CTA intermedio */}
           <div className="text-center mt-10">
             <a
-              href={CONFIG.REG_LINK}
-              target="_blank"
-              rel="noopener noreferrer"
+              href="#inscripcion"
               className="inline-block px-8 py-4 bg-gradient-to-r from-cyan-500 to-cyan-400 text-[#061526] font-bold text-lg rounded-xl hover:from-cyan-400 hover:to-cyan-300 transition-all shadow-lg shadow-cyan-500/30"
             >
               RESERVA TU CUPO GRATIS
@@ -373,49 +403,118 @@ export function SeminarioVipPage() {
         </div>
       </section>
 
-      {/* REGISTRO / QR */}
-      <section className="relative z-10 py-16 sm:py-20 bg-black/20">
-        <div className="max-w-4xl mx-auto px-4">
-          <h2 className="text-2xl sm:text-3xl font-bold text-center mb-12">
-            <span className="text-cyan-400">REGISTRATE</span> AHORA
+      {/* FORMULARIO DE INSCRIPCION */}
+      <section id="inscripcion" className="relative z-10 py-16 sm:py-20 bg-black/20">
+        <div className="max-w-2xl mx-auto px-4">
+          <h2 className="text-2xl sm:text-3xl font-bold text-center mb-4">
+            <span className="text-cyan-400">FORMULARIO DE</span> INSCRIPCION
           </h2>
+          <p className="text-white/60 text-center mb-10">Completa tus datos y te contactaremos por WhatsApp</p>
 
-          <div className="bg-gradient-to-br from-[#0a1f35] to-[#081a2f] border border-cyan-500/20 rounded-2xl p-8 text-center">
-            {/* QR Code */}
-            <div className="mb-6">
-              <div className="inline-block p-4 bg-white rounded-xl">
-                <img
-                  src={CONFIG.QR_IMAGE}
-                  alt="Codigo QR para registro"
-                  className="w-48 h-48 object-contain"
+          <form onSubmit={handleSubmit} className="bg-gradient-to-br from-[#0a1f35] to-[#081a2f] border border-cyan-500/20 rounded-2xl p-6 sm:p-8">
+            <div className="grid sm:grid-cols-2 gap-5">
+              {/* Nombres */}
+              <div>
+                <label htmlFor="nombres" className="block text-white/80 text-sm font-medium mb-2">
+                  Nombres *
+                </label>
+                <input
+                  type="text"
+                  id="nombres"
+                  name="nombres"
+                  required
+                  value={formData.nombres}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 bg-white/5 border border-cyan-500/20 rounded-lg text-white placeholder-white/40 focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-colors"
+                  placeholder="Ingresa tus nombres"
                 />
               </div>
-              <p className="text-white/60 mt-3">Escanea el QR para inscribirte</p>
+
+              {/* Apellidos */}
+              <div>
+                <label htmlFor="apellidos" className="block text-white/80 text-sm font-medium mb-2">
+                  Apellidos *
+                </label>
+                <input
+                  type="text"
+                  id="apellidos"
+                  name="apellidos"
+                  required
+                  value={formData.apellidos}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 bg-white/5 border border-cyan-500/20 rounded-lg text-white placeholder-white/40 focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-colors"
+                  placeholder="Ingresa tus apellidos"
+                />
+              </div>
+
+              {/* DNI */}
+              <div>
+                <label htmlFor="dni" className="block text-white/80 text-sm font-medium mb-2">
+                  DNI *
+                </label>
+                <input
+                  type="text"
+                  id="dni"
+                  name="dni"
+                  required
+                  maxLength={8}
+                  pattern="[0-9]{8}"
+                  value={formData.dni}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 bg-white/5 border border-cyan-500/20 rounded-lg text-white placeholder-white/40 focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-colors"
+                  placeholder="12345678"
+                />
+              </div>
+
+              {/* Telefono */}
+              <div>
+                <label htmlFor="telefono" className="block text-white/80 text-sm font-medium mb-2">
+                  Telefono / Celular *
+                </label>
+                <input
+                  type="tel"
+                  id="telefono"
+                  name="telefono"
+                  required
+                  value={formData.telefono}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 bg-white/5 border border-cyan-500/20 rounded-lg text-white placeholder-white/40 focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-colors"
+                  placeholder="987654321"
+                />
+              </div>
+
+              {/* Email - Full width */}
+              <div className="sm:col-span-2">
+                <label htmlFor="email" className="block text-white/80 text-sm font-medium mb-2">
+                  Correo Electronico *
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  required
+                  value={formData.email}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 bg-white/5 border border-cyan-500/20 rounded-lg text-white placeholder-white/40 focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-colors"
+                  placeholder="correo@ejemplo.com"
+                />
+              </div>
             </div>
 
-            {/* Link de respaldo */}
-            <div className="mb-6">
-              <p className="text-white/60 text-sm mb-2">O usa este enlace:</p>
-              <a
-                href={CONFIG.REG_LINK}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-cyan-400 hover:text-cyan-300 underline break-all"
-              >
-                {CONFIG.REG_LINK}
-              </a>
-            </div>
+            {/* Nota */}
+            <p className="text-white/50 text-sm mt-6 mb-6">
+              Al enviar este formulario, se abrira WhatsApp con tus datos para completar tu inscripcion.
+            </p>
 
-            {/* Boton principal */}
-            <a
-              href={CONFIG.REG_LINK}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block px-10 py-4 bg-gradient-to-r from-cyan-500 to-cyan-400 text-[#061526] font-bold text-xl rounded-xl hover:from-cyan-400 hover:to-cyan-300 transition-all shadow-lg shadow-cyan-500/30 hover:shadow-xl"
+            {/* Boton Enviar */}
+            <button
+              type="submit"
+              className="w-full px-8 py-4 bg-gradient-to-r from-cyan-500 to-cyan-400 text-[#061526] font-bold text-lg rounded-xl hover:from-cyan-400 hover:to-cyan-300 transition-all shadow-lg shadow-cyan-500/30 hover:shadow-xl flex items-center justify-center gap-3"
             >
-              REGISTRARME
-            </a>
-          </div>
+              {Icons.whatsapp}
+              ENVIAR INSCRIPCION
+            </button>
+          </form>
         </div>
       </section>
 

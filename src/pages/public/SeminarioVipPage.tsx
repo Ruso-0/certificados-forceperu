@@ -20,6 +20,91 @@ const CONFIG = {
 
 const whatsappLink = `https://wa.me/${CONFIG.WHATSAPP_NUMBER}?text=${encodeURIComponent(CONFIG.WHATSAPP_MESSAGE)}`
 
+// Iconos SVG inline
+const Icons = {
+  whatsapp: (
+    <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+  ),
+  calendar: (
+    <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+    </svg>
+  ),
+  clock: (
+    <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+    </svg>
+  ),
+  video: (
+    <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+    </svg>
+  ),
+  checkCircle: (
+    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+    </svg>
+  ),
+  brain: (
+    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+    </svg>
+  ),
+  shield: (
+    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+    </svg>
+  ),
+  badge: (
+    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+    </svg>
+  ),
+  clipboard: (
+    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+    </svg>
+  ),
+  users: (
+    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+    </svg>
+  ),
+  school: (
+    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 14l9-5-9-5-9 5 9 5z" />
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
+    </svg>
+  ),
+  star: (
+    <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+    </svg>
+  ),
+  chevronDown: (
+    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+    </svg>
+  ),
+  info: (
+    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+    </svg>
+  ),
+  warning: (
+    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+    </svg>
+  ),
+  globe: (
+    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+    </svg>
+  ),
+}
+
 export function SeminarioVipPage() {
   const [faqOpen, setFaqOpen] = useState<number | null>(null)
 
@@ -47,12 +132,12 @@ export function SeminarioVipPage() {
   ]
 
   const beneficios = [
-    { icon: 'check_circle', text: 'Acceso GRATUITO al seminario' },
-    { icon: 'psychology', text: 'Enfoque practico con casos y simulaciones' },
-    { icon: 'security', text: 'Protocolos y planificacion VIP' },
-    { icon: 'workspace_premium', text: 'Certificacion opcional S/120' },
-    { icon: 'assignment_turned_in', text: 'Incluye evaluacion + constancia' },
-    { icon: 'groups', text: 'Cupos limitados' },
+    { icon: Icons.checkCircle, text: 'Acceso GRATUITO al seminario' },
+    { icon: Icons.brain, text: 'Enfoque practico con casos y simulaciones' },
+    { icon: Icons.shield, text: 'Protocolos y planificacion VIP' },
+    { icon: Icons.badge, text: 'Certificacion opcional S/120' },
+    { icon: Icons.clipboard, text: 'Incluye evaluacion + constancia' },
+    { icon: Icons.users, text: 'Cupos limitados' },
   ]
 
   const incluye = [
@@ -104,9 +189,7 @@ export function SeminarioVipPage() {
             className="flex items-center gap-2 px-4 py-2 bg-green-600 hover:bg-green-500 rounded-lg font-semibold text-sm transition-colors"
             aria-label="Contactar por WhatsApp"
           >
-            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-            </svg>
+            {Icons.whatsapp}
             <span className="hidden sm:inline">WhatsApp</span>
           </a>
         </div>
@@ -149,7 +232,7 @@ export function SeminarioVipPage() {
 
             {/* Instructor */}
             <div className="inline-flex items-center gap-3 px-6 py-3 bg-white/5 backdrop-blur-sm border border-cyan-500/20 rounded-xl mb-10">
-              <span className="material-symbols-outlined text-cyan-400 text-2xl">school</span>
+              <div className="text-cyan-400">{Icons.school}</div>
               <div className="text-left">
                 <p className="text-white/60 text-sm">Instructor</p>
                 <p className="text-white font-semibold">RODOLFO ARTURO PACHECO VERA</p>
@@ -172,12 +255,10 @@ export function SeminarioVipPage() {
                 href={whatsappLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-8 py-4 bg-white/10 backdrop-blur-sm text-white font-bold text-lg rounded-xl border border-cyan-500/30 hover:bg-white/20 hover:border-cyan-400/50 transition-all"
+                className="px-8 py-4 bg-white/10 backdrop-blur-sm text-white font-bold text-lg rounded-xl border border-cyan-500/30 hover:bg-white/20 hover:border-cyan-400/50 transition-all flex items-center justify-center gap-2"
                 aria-label="Hablar por WhatsApp"
               >
-                <svg className="w-6 h-6 inline-block mr-2 -mt-1" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-                </svg>
+                {Icons.whatsapp}
                 Hablar por WhatsApp
               </a>
             </div>
@@ -191,21 +272,21 @@ export function SeminarioVipPage() {
           <div className="grid sm:grid-cols-3 gap-6">
             {/* Fecha */}
             <div className="bg-gradient-to-br from-[#0a1f35] to-[#081a2f] border border-cyan-500/20 rounded-2xl p-6 text-center hover:border-cyan-400/40 transition-colors">
-              <span className="material-symbols-outlined text-cyan-400 text-4xl mb-3 block">calendar_month</span>
+              <div className="text-cyan-400 flex justify-center mb-3">{Icons.calendar}</div>
               <p className="text-white/60 text-sm uppercase tracking-wider mb-1">Fecha</p>
               <p className="text-white font-bold text-xl">22 ENERO 2026</p>
             </div>
 
             {/* Horario */}
             <div className="bg-gradient-to-br from-[#0a1f35] to-[#081a2f] border border-cyan-500/20 rounded-2xl p-6 text-center hover:border-cyan-400/40 transition-colors">
-              <span className="material-symbols-outlined text-cyan-400 text-4xl mb-3 block">schedule</span>
+              <div className="text-cyan-400 flex justify-center mb-3">{Icons.clock}</div>
               <p className="text-white/60 text-sm uppercase tracking-wider mb-1">Horario</p>
               <p className="text-white font-bold text-xl">19:30 - 21:30</p>
             </div>
 
             {/* Modalidad */}
             <div className="bg-gradient-to-br from-[#0a1f35] to-[#081a2f] border border-cyan-500/20 rounded-2xl p-6 text-center hover:border-cyan-400/40 transition-colors">
-              <span className="material-symbols-outlined text-cyan-400 text-4xl mb-3 block">videocam</span>
+              <div className="text-cyan-400 flex justify-center mb-3">{Icons.video}</div>
               <p className="text-white/60 text-sm uppercase tracking-wider mb-1">Modalidad</p>
               <p className="text-white font-bold text-xl">ONLINE EN VIVO</p>
             </div>
@@ -226,7 +307,7 @@ export function SeminarioVipPage() {
                 key={index}
                 className="flex items-center gap-4 p-4 bg-white/5 backdrop-blur-sm border border-cyan-500/10 rounded-xl hover:border-cyan-500/30 transition-colors"
               >
-                <span className="material-symbols-outlined text-cyan-400 text-2xl flex-shrink-0">{item.icon}</span>
+                <div className="text-cyan-400 flex-shrink-0">{item.icon}</div>
                 <span className="text-white/90">{item.text}</span>
               </div>
             ))}
@@ -245,7 +326,7 @@ export function SeminarioVipPage() {
             <ul className="space-y-4">
               {incluye.map((item, index) => (
                 <li key={index} className="flex items-start gap-3">
-                  <span className="material-symbols-outlined text-green-400 text-xl flex-shrink-0 mt-0.5">check_circle</span>
+                  <div className="text-green-400 flex-shrink-0 mt-0.5">{Icons.checkCircle}</div>
                   <span className="text-white/90 text-lg">{item}</span>
                 </li>
               ))}
@@ -274,7 +355,7 @@ export function SeminarioVipPage() {
           </h2>
 
           <div className="bg-gradient-to-br from-amber-500/10 to-amber-600/5 border border-amber-500/30 rounded-2xl p-8 text-center">
-            <span className="material-symbols-outlined text-amber-400 text-5xl mb-4 block">workspace_premium</span>
+            <div className="text-amber-400 flex justify-center mb-4">{Icons.star}</div>
 
             <p className="text-xl text-white mb-4">
               El seminario es <span className="text-green-400 font-bold">100% GRATUITO</span>
@@ -285,7 +366,7 @@ export function SeminarioVipPage() {
             </p>
 
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 rounded-lg text-white/70">
-              <span className="material-symbols-outlined text-amber-400">info</span>
+              <div className="text-amber-400">{Icons.info}</div>
               La certificacion incluye evaluacion + emision de constancia oficial
             </div>
           </div>
@@ -357,9 +438,9 @@ export function SeminarioVipPage() {
                   aria-expanded={faqOpen === index}
                 >
                   <span className="text-white font-semibold pr-4">{faq.question}</span>
-                  <span className={`material-symbols-outlined text-cyan-400 transition-transform ${faqOpen === index ? 'rotate-180' : ''}`}>
-                    expand_more
-                  </span>
+                  <div className={`text-cyan-400 transition-transform ${faqOpen === index ? 'rotate-180' : ''}`}>
+                    {Icons.chevronDown}
+                  </div>
                 </button>
                 {faqOpen === index && (
                   <div className="px-6 pb-4">
@@ -388,9 +469,7 @@ export function SeminarioVipPage() {
               rel="noopener noreferrer"
               className="flex items-center gap-2 hover:text-cyan-400 transition-colors"
             >
-              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-              </svg>
+              {Icons.whatsapp}
               +51 907 544 736
             </a>
             <a
@@ -399,13 +478,13 @@ export function SeminarioVipPage() {
               rel="noopener noreferrer"
               className="flex items-center gap-2 hover:text-cyan-400 transition-colors"
             >
-              <span className="material-symbols-outlined text-lg">language</span>
+              {Icons.globe}
               force-peru.vercel.app
             </a>
           </div>
 
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-red-500/10 border border-red-500/30 rounded-full text-red-400 font-semibold text-sm">
-            <span className="material-symbols-outlined text-lg">warning</span>
+            {Icons.warning}
             CUPOS LIMITADOS
           </div>
 

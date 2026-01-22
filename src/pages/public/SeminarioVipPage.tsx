@@ -24,6 +24,13 @@ interface StatsData {
   updated_at: string
 }
 
+// Estadísticas reales - actualizar manualmente o conectar a API
+const STATS_DATA: StatsData = {
+  free_count: 9,
+  cert_count: 6,
+  updated_at: new Date().toISOString(),
+}
+
 function useInscripcionStats() {
   const [stats, setStats] = useState<StatsData | null>(null)
   const [loading, setLoading] = useState(true)
@@ -36,12 +43,14 @@ function useInscripcionStats() {
         const data = await response.json()
         if (data && typeof data.free_count === 'number' && typeof data.cert_count === 'number') {
           setStats(data)
+          return
         }
       } catch {
-        // Si falla, stats permanece null
-      } finally {
-        setLoading(false)
+        // Si falla el API, usar datos locales
       }
+      // Fallback: usar datos hardcodeados
+      setStats(STATS_DATA)
+      setLoading(false)
     }
     fetchStats()
   }, [])

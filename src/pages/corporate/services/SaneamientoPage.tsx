@@ -39,9 +39,9 @@ export function SaneamientoPage() {
       {/* Hero Banner */}
       <section className="relative h-[400px] lg:h-[500px]">
         <img
-          src="/images/service-saneamiento.jpg"
+          src="/images/saneamiento-hero.jpg"
           alt="Saneamiento Ambiental"
-          className="absolute inset-0 w-full h-full object-cover"
+          className="absolute inset-0 w-full h-full object-cover object-[center_45%]"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-primary/90 to-primary/70" />
         <div className="relative h-full flex items-center">
@@ -118,13 +118,15 @@ export function SaneamientoPage() {
             {/* Video / Image */}
             <div>
               <div className="bg-bg rounded-lg overflow-hidden aspect-video mb-6 border border-border">
-                {/* Video placeholder - reemplazar con video real */}
-                <div className="w-full h-full flex items-center justify-center">
-                  <div className="text-center">
-                    <Icon name="play_circle" size="xl" className="text-secondary mb-2" />
-                    <p className="text-text-muted text-sm">Video del servicio</p>
-                  </div>
-                </div>
+                <video
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="w-full h-full object-cover"
+                >
+                  <source src="/videos/saneamiento-servicio.mp4" type="video/mp4" />
+                </video>
               </div>
 
               {/* CTA Card */}

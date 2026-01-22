@@ -158,12 +158,15 @@ export function SeguridadPage() {
             {/* Video / Image */}
             <div>
               <div className="bg-bg rounded-lg overflow-hidden aspect-video mb-6 border border-border">
-                <div className="w-full h-full flex items-center justify-center">
-                  <div className="text-center">
-                    <Icon name="play_circle" size="xl" className="text-secondary mb-2" />
-                    <p className="text-text-muted text-sm">Video del servicio</p>
-                  </div>
-                </div>
+                <video
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="w-full h-full object-cover"
+                >
+                  <source src="/videos/seguridad-servicio.mp4" type="video/mp4" />
+                </video>
               </div>
 
               {/* CTA Card */}

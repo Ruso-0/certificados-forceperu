@@ -1115,3 +1115,36 @@ textarea::placeholder {
 .animate-marquee-right:hover {
   animation-play-state: paused;
 }
+
+/* ============================================
+   SEMINARIO VIP - INTRO VIDEO ANIMATIONS
+   ============================================ */
+
+/* Barra de progreso del video intro */
+@keyframes intro-progress {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+.animate-intro-progress {
+  animation: intro-progress 8s ease-out forwards;
+}
+
+/* Fade out suave para el video */
+@keyframes intro-fade-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+.animate-intro-fade-out {
+  animation: intro-fade-out 0.5s ease-out forwards;
+}

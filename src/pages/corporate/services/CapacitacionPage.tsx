@@ -39,12 +39,11 @@ export function CapacitacionPage() {
   return (
     <div>
       {/* Hero Banner */}
-      <section className="relative h-[500px] lg:h-[700px]">
+      <section className="relative h-[400px] lg:h-[500px]">
         <img
-          src="/images/capacitacion.jpg"
+          src="/images/capacitacion-hero.jpg"
           alt="Capacitación y Entrenamiento"
-          className="absolute inset-0 w-full h-full object-cover"
-          style={{ objectPosition: 'center 30%' }}
+          className="absolute inset-0 w-full h-full object-cover object-[center_35%]"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-primary/80 to-primary/50" />
         <div className="relative h-full flex items-center">
@@ -120,12 +119,15 @@ export function CapacitacionPage() {
             {/* Video / Image */}
             <div>
               <div className="bg-bg rounded-lg overflow-hidden aspect-video mb-6 border border-border">
-                <div className="w-full h-full flex items-center justify-center">
-                  <div className="text-center">
-                    <Icon name="play_circle" size="xl" className="text-secondary mb-2" />
-                    <p className="text-text-muted text-sm">Video del servicio</p>
-                  </div>
-                </div>
+                <video
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="w-full h-full object-cover"
+                >
+                  <source src="/videos/capacitacion-servicio.mp4" type="video/mp4" />
+                </video>
               </div>
 
               {/* CTA Card */}

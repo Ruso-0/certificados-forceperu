@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom'
 import { Icon } from '../../components/ui/Icon'
-import { ParticleNetwork } from '../../components/ui/ParticleNetwork'
 import { useScrollReveal } from '../../hooks/useScrollReveal'
 
 const services = [

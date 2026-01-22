@@ -43,46 +43,28 @@ export function HomePage() {
 
   return (
     <div>
-      {/* Hero Section - Particle Network Background */}
-      <section className="relative min-h-screen overflow-hidden bg-gradient-to-br from-[#0B1220] via-[#0f1a2e] to-[#0B1220]">
-        {/* Particle Network Animation */}
-        <ParticleNetwork />
-
-        {/* Subtle gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#0B1220]/50" />
-
-        {/* Content */}
-        <div className="relative z-10 min-h-screen flex items-center justify-center text-center px-4">
-          <div className="max-w-4xl">
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-display font-black text-white mb-6 animate-fade-in">
-              FORCE PERÚ S.A.C.
-            </h1>
-            <p className="text-xl md:text-2xl text-white/80 mb-10 animate-slide-up delay-200">
-              Seguridad Integral y Saneamiento Ambiental
-            </p>
-            <div className="flex flex-wrap gap-4 justify-center animate-slide-up delay-300">
-              <Link
-                to="/servicios"
-                className="px-8 py-4 bg-amber-500 text-black font-bold rounded hover:bg-amber-400 transition-all btn-shine"
-              >
-                Ver Servicios
-              </Link>
-              <Link
-                to="/contacto"
-                className="px-8 py-4 border-2 border-white text-white font-bold rounded hover:bg-white hover:text-black transition-all"
-              >
-                Contactar
-              </Link>
-            </div>
-          </div>
+      {/* Hero Section - Full Image Background */}
+      <section className="relative min-h-screen overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <img
+            src="/images/hero-principal.png"
+            alt="Force Perú - Seguridad Integral"
+            className="w-full h-full object-cover object-center"
+          />
+          {/* Overlay for better text readability */}
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0B1220]/30 via-transparent to-[#0B1220]/70" />
         </div>
 
         {/* Scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-float">
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-float z-10">
           <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center">
             <div className="w-1.5 h-3 bg-white/70 rounded-full mt-2 animate-slide-up" />
           </div>
         </div>
+
+        {/* Spacer to maintain min-height */}
+        <div className="relative z-10 min-h-screen" />
       </section>
 
       {/* Certifications Bar - Marquee Infinito */}

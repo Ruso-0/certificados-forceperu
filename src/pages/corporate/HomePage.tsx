@@ -2,41 +2,6 @@ import { Link } from 'react-router-dom'
 import { Icon } from '../../components/ui/Icon'
 import { useScrollReveal } from '../../hooks/useScrollReveal'
 
-const services = [
-  {
-    icon: 'pest_control',
-    iconImage: '/images/icons/saneamiento-icon.png',
-    title: 'Saneamiento Ambiental',
-    description: 'Control de plagas, fumigación y desinfección con productos certificados.',
-    href: '/servicios/saneamiento-ambiental',
-    image: '/images/saneamiento-ambiental.jpg',
-  },
-  {
-    icon: 'security',
-    iconImage: '/images/icons/seguridad-icon.png',
-    title: 'Seguridad Integral',
-    description: 'Vigilancia privada, resguardo y protección patrimonial 24/7.',
-    href: '/servicios/seguridad-integral',
-    image: '/images/seguridad-integral.jpg',
-  },
-  {
-    icon: 'school',
-    iconImage: '/images/icons/capacitacion-icon.png',
-    title: 'Capacitación',
-    description: 'Cursos certificados en seguridad, primeros auxilios y emergencias.',
-    href: '/servicios/capacitacion',
-    image: '/images/capacitacion.jpg',
-  },
-  {
-    icon: 'cleaning_services',
-    iconImage: '/images/icons/limpieza-icon.png',
-    title: 'Limpieza',
-    description: 'Servicios profesionales de limpieza para oficinas e industrias.',
-    href: '/servicios/limpieza',
-    image: '/images/limpieza.jpg',
-  },
-]
-
 export function HomePage() {
   useScrollReveal()
 

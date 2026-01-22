@@ -159,17 +159,6 @@ export function Header() {
                         </div>
                       </div>
                     </div>
-                  ) : item.isHighlighted ? (
-                    <Link
-                      to={item.href}
-                      className="px-4 py-2 text-sm font-semibold text-amber-600 bg-amber-50 hover:bg-amber-100 rounded-lg transition-colors flex items-center gap-1.5"
-                    >
-                      <span className="relative flex h-2 w-2">
-                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
-                        <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-500"></span>
-                      </span>
-                      {item.name}
-                    </Link>
                   ) : (
                     <Link
                       to={item.href}
@@ -270,19 +259,6 @@ export function Header() {
                           </div>
                         )}
                       </div>
-                    ) : item.isHighlighted ? (
-                      <Link
-                        to={item.href}
-                        className="flex items-center gap-3 px-4 py-3.5 text-base font-semibold rounded-xl transition-all duration-200 text-amber-700 bg-amber-50 border border-amber-200"
-                      >
-                        <div className="w-8 h-8 bg-amber-100 rounded-lg flex items-center justify-center">
-                          <Icon name="celebration" size="sm" className="text-amber-600" />
-                        </div>
-                        {item.name}
-                        <span className="ml-auto px-2 py-0.5 bg-amber-500 text-white text-xs font-bold rounded-full">
-                          NUEVO
-                        </span>
-                      </Link>
                     ) : (
                       <Link
                         to={item.href}

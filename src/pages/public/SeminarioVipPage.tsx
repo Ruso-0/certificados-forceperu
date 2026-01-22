@@ -18,6 +18,51 @@ interface FormData {
   email: string
 }
 
+interface StatsData {
+  free_count: number
+  cert_count: number
+  updated_at: string
+}
+
+function useInscripcionStats() {
+  const [stats, setStats] = useState<StatsData | null>(null)
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    const fetchStats = async () => {
+      try {
+        const response = await fetch('/api/stats-inscripciones')
+        if (!response.ok) throw new Error('Failed to fetch')
+        const data = await response.json()
+        if (data && typeof data.free_count === 'number' && typeof data.cert_count === 'number') {
+          setStats(data)
+        }
+      } catch {
+        // Si falla, stats permanece null
+      } finally {
+        setLoading(false)
+      }
+    }
+    fetchStats()
+  }, [])
+
+  return { stats, loading }
+}
+
+function formatLocalDate(isoString: string): string {
+  try {
+    const date = new Date(isoString)
+    return date.toLocaleDateString('es-PE', {
+      day: '2-digit',
+      month: 'short',
+      hour: '2-digit',
+      minute: '2-digit',
+    })
+  } catch {
+    return ''
+  }
+}
+
 function useCountdown(targetDate: Date) {
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 })
 
@@ -48,6 +93,7 @@ export function SeminarioVipPage() {
     email: '',
   })
   const countdown = useCountdown(SEMINARIO_DATE)
+  const { stats, loading: statsLoading } = useInscripcionStats()
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target
@@ -148,6 +194,31 @@ Proteccion VIP - 3 Dias
               >
                 Inscribirme Gratis
               </button>
+
+              {/* Prueba Social - Card Gratis */}
+              <div className="mt-4 pt-4 border-t border-cyan-500/10" aria-label="Estadísticas de participantes">
+                {!statsLoading && stats && stats.free_count > 0 ? (
+                  <>
+                    <div className="flex items-center justify-center gap-2 text-slate-400">
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                      </svg>
+                      <span className="text-xs">
+                        Elegido por <span className="text-cyan-400 font-semibold">{stats.free_count}</span> participantes
+                      </span>
+                    </div>
+                    {stats.updated_at && (
+                      <p className="text-center text-[10px] text-slate-500 mt-1">
+                        Actualizado: {formatLocalDate(stats.updated_at)}
+                      </p>
+                    )}
+                  </>
+                ) : (
+                  <p className="text-center text-xs text-slate-500">
+                    Cupos limitados. Registro en curso.
+                  </p>
+                )}
+              </div>
             </div>
 
             {/* Card 2: Certificacion Profesional */}
@@ -204,6 +275,40 @@ Proteccion VIP - 3 Dias
               >
                 Agregar Certificación
               </button>
+
+              {/* Prueba Social - Card Certificación */}
+              <div className="mt-4 pt-4 border-t border-amber-500/10" aria-label="Estadísticas de certificación">
+                {!statsLoading && stats && stats.cert_count > 0 ? (
+                  <>
+                    {/* Chip Recomendado */}
+                    <div className="flex justify-center mb-2">
+                      <span className="inline-flex items-center gap-1 px-2 py-0.5 bg-amber-500/10 border border-amber-500/30 rounded text-[10px] text-amber-400 font-medium">
+                        <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                          <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                        </svg>
+                        Recomendado para CV
+                      </span>
+                    </div>
+                    <div className="flex items-center justify-center gap-2 text-slate-400">
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                      </svg>
+                      <span className="text-xs">
+                        <span className="text-amber-400 font-semibold">{stats.cert_count}</span> participantes ya se certificaron
+                      </span>
+                    </div>
+                    {stats.updated_at && (
+                      <p className="text-center text-[10px] text-slate-500 mt-1">
+                        Actualizado: {formatLocalDate(stats.updated_at)}
+                      </p>
+                    )}
+                  </>
+                ) : (
+                  <p className="text-center text-xs text-slate-500">
+                    Cupos limitados. Registro en curso.
+                  </p>
+                )}
+              </div>
             </div>
           </div>
         </section>

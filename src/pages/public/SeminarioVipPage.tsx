@@ -159,52 +159,52 @@ Proteccion VIP - 3 Dias
 
           <div className="grid md:grid-cols-2 gap-4">
             {/* Card 1: Seminario GRATUITO */}
-            <div className="group bg-[#0b2640] border border-cyan-500/20 rounded-2xl p-5 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-cyan-500/10 hover:border-cyan-500/40">
+            <div className="group bg-gradient-to-br from-[#0b2640] to-[#0a1f35] border border-cyan-500/30 rounded-2xl p-5 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-cyan-500/20 hover:border-cyan-400/50">
               <div className="flex items-center justify-between mb-4">
                 <h3 className="text-lg font-bold text-white">Seminario GRATUITO</h3>
-                <span className="px-3 py-1 bg-emerald-500/20 border border-emerald-500/40 rounded-full text-emerald-400 text-xs font-semibold uppercase">
+                <span className="px-3 py-1.5 bg-emerald-500/20 border border-emerald-500/50 rounded-full text-emerald-400 text-xs font-bold uppercase shadow-lg shadow-emerald-500/20">
                   Gratis
                 </span>
               </div>
 
-              <ul className="space-y-3 mb-5">
+              <ul className="space-y-4 mb-5">
                 <li className="flex items-start gap-3">
-                  <div className="w-6 h-6 bg-cyan-500/20 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <svg className="w-3.5 h-3.5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div className="w-10 h-10 bg-gradient-to-br from-cyan-500/30 to-cyan-600/20 rounded-xl flex items-center justify-center flex-shrink-0 border border-cyan-500/40 shadow-lg shadow-cyan-500/10 group-hover:scale-110 transition-transform duration-300">
+                    <svg className="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                     </svg>
                   </div>
-                  <span className="text-white/80 text-sm">Formación intensiva (3 días) en prevención y protocolos operativos</span>
+                  <span className="text-white/90 text-sm leading-relaxed">Formación intensiva (3 días) en prevención y protocolos operativos</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <div className="w-6 h-6 bg-cyan-500/20 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <svg className="w-3.5 h-3.5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div className="w-10 h-10 bg-gradient-to-br from-cyan-500/30 to-cyan-600/20 rounded-xl flex items-center justify-center flex-shrink-0 border border-cyan-500/40 shadow-lg shadow-cyan-500/10 group-hover:scale-110 transition-transform duration-300">
+                    <svg className="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                     </svg>
                   </div>
-                  <span className="text-white/80 text-sm">Casos reales y simulaciones tácticas orientadas a escenarios</span>
+                  <span className="text-white/90 text-sm leading-relaxed">Casos reales y simulaciones tácticas orientadas a escenarios</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <div className="w-6 h-6 bg-cyan-500/20 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <svg className="w-3.5 h-3.5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div className="w-10 h-10 bg-gradient-to-br from-cyan-500/30 to-cyan-600/20 rounded-xl flex items-center justify-center flex-shrink-0 border border-cyan-500/40 shadow-lg shadow-cyan-500/10 group-hover:scale-110 transition-transform duration-300">
+                    <svg className="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                     </svg>
                   </div>
-                  <span className="text-white/80 text-sm">Material digital de apoyo durante el evento</span>
+                  <span className="text-white/90 text-sm leading-relaxed">Material digital de apoyo durante el evento</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <div className="w-6 h-6 bg-cyan-500/20 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <svg className="w-3.5 h-3.5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div className="w-10 h-10 bg-gradient-to-br from-cyan-500/30 to-cyan-600/20 rounded-xl flex items-center justify-center flex-shrink-0 border border-cyan-500/40 shadow-lg shadow-cyan-500/10 group-hover:scale-110 transition-transform duration-300">
+                    <svg className="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
                     </svg>
                   </div>
-                  <span className="text-white/80 text-sm">Acceso en vivo online</span>
+                  <span className="text-white/90 text-sm leading-relaxed">Acceso en vivo online</span>
                 </li>
               </ul>
 
               <button
                 onClick={() => document.getElementById('form-inscripcion')?.scrollIntoView({ behavior: 'smooth' })}
-                className="w-full py-3 bg-gradient-to-r from-cyan-500 to-cyan-400 text-[#061526] font-bold rounded-xl text-sm transition-all hover:shadow-lg hover:shadow-cyan-500/30"
+                className="w-full py-3.5 bg-gradient-to-r from-cyan-500 to-cyan-400 text-[#061526] font-bold rounded-xl text-sm transition-all hover:shadow-xl hover:shadow-cyan-500/40 active:scale-[0.98]"
               >
                 Inscribirme Gratis
               </button>
@@ -236,51 +236,51 @@ Proteccion VIP - 3 Dias
             </div>
 
             {/* Card 2: Certificacion Profesional - PREMIUM */}
-            <div className="group relative bg-gradient-to-br from-[#0b2640] via-[#0d2a45] to-[#0b2640] border-2 border-amber-500/30 rounded-2xl p-5 transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl hover:shadow-amber-500/20 hover:border-amber-400/50 overflow-hidden">
+            <div className="group relative bg-gradient-to-br from-[#0b2640] via-[#0d2a45] to-[#0b2640] border-2 border-amber-500/40 rounded-2xl p-5 transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl hover:shadow-amber-500/30 hover:border-amber-400/60 overflow-hidden">
               {/* Efecto glow de fondo */}
-              <div className="absolute inset-0 bg-gradient-to-br from-amber-500/5 via-transparent to-amber-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="absolute inset-0 bg-gradient-to-br from-amber-500/10 via-transparent to-amber-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-              {/* Ribbon destacado */}
-              <div className="absolute -right-8 top-6 rotate-45 bg-gradient-to-r from-amber-500 to-amber-400 text-[#061526] text-[10px] font-bold py-1 px-10 shadow-lg">
-                RECOMENDADO
-              </div>
+              {/* Línea superior brillante */}
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-amber-400 to-transparent" />
 
               <div className="relative">
                 <div className="flex items-center justify-between mb-4">
-                  <h3 className="text-lg font-bold text-white">Certificación Profesional</h3>
-                  <span className="px-3 py-1 bg-amber-500/20 border border-amber-500/40 rounded-full text-amber-400 text-xs font-semibold uppercase animate-pulse">
-                    Opcional
-                  </span>
+                  <div className="flex items-center gap-2">
+                    <h3 className="text-lg font-bold text-white">Certificación Profesional</h3>
+                    <span className="px-2 py-0.5 bg-amber-500 text-[#061526] text-[10px] font-bold rounded uppercase">
+                      PRO
+                    </span>
+                  </div>
                 </div>
 
-                <p className="text-amber-400/90 text-sm mb-4 italic border-l-2 border-amber-500/50 pl-3">
+                <p className="text-amber-400/90 text-sm mb-5 italic border-l-2 border-amber-500/50 pl-3">
                   "Convierte tu asistencia en un respaldo profesional verificable."
                 </p>
 
-                <ul className="space-y-3 mb-5">
+                <ul className="space-y-4 mb-5">
                   <li className="flex items-start gap-3">
-                    <div className="w-7 h-7 bg-gradient-to-br from-amber-500/30 to-amber-600/20 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5 border border-amber-500/30">
-                      <svg className="w-4 h-4 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div className="w-10 h-10 bg-gradient-to-br from-amber-500/30 to-amber-600/20 rounded-xl flex items-center justify-center flex-shrink-0 border border-amber-500/50 shadow-lg shadow-amber-500/20 group-hover:scale-110 group-hover:shadow-amber-500/40 transition-all duration-300">
+                      <svg className="w-5 h-5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
                       </svg>
                     </div>
-                    <span className="text-white/90 text-sm">Evaluación de competencias operativas</span>
+                    <span className="text-white/90 text-sm leading-relaxed">Evaluación de competencias operativas</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <div className="w-7 h-7 bg-gradient-to-br from-amber-500/30 to-amber-600/20 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5 border border-amber-500/30">
-                      <svg className="w-4 h-4 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div className="w-10 h-10 bg-gradient-to-br from-amber-500/30 to-amber-600/20 rounded-xl flex items-center justify-center flex-shrink-0 border border-amber-500/50 shadow-lg shadow-amber-500/20 group-hover:scale-110 group-hover:shadow-amber-500/40 transition-all duration-300">
+                      <svg className="w-5 h-5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
                       </svg>
                     </div>
-                    <span className="text-white/90 text-sm">Certificado digital con código de verificación</span>
+                    <span className="text-white/90 text-sm leading-relaxed">Certificado digital con código de verificación</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <div className="w-7 h-7 bg-gradient-to-br from-amber-500/30 to-amber-600/20 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5 border border-amber-500/30">
-                      <svg className="w-4 h-4 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div className="w-10 h-10 bg-gradient-to-br from-amber-500/30 to-amber-600/20 rounded-xl flex items-center justify-center flex-shrink-0 border border-amber-500/50 shadow-lg shadow-amber-500/20 group-hover:scale-110 group-hover:shadow-amber-500/40 transition-all duration-300">
+                      <svg className="w-5 h-5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                       </svg>
                     </div>
-                    <span className="text-white/90 text-sm">Validez laboral mediante convenios institucionales</span>
+                    <span className="text-white/90 text-sm leading-relaxed">Validez laboral mediante convenios institucionales</span>
                   </li>
                 </ul>
 

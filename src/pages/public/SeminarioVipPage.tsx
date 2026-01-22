@@ -5,6 +5,7 @@ const CONFIG = {
   WHATSAPP_NUMBER: '51907544736',
   LOGO: '/images/logo-force.png',
   FLYER: '/images/flyer-seminario-vip.png',
+  QR_CODE: '/images/qr-seminario-vip.svg',
   PAGE_URL: 'https://force-peru.vercel.app/seminario-vip',
 }
 
@@ -64,9 +65,6 @@ Proteccion VIP - 3 Dias
 
     window.open(`https://wa.me/${CONFIG.WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`, '_blank')
   }
-
-  // QR Code - usando quickchart.io que genera QRs que abren directo en navegador
-  const qrUrl = `https://quickchart.io/qr?text=${encodeURIComponent(CONFIG.PAGE_URL)}&size=200&dark=000000&light=ffffff&ecLevel=M&format=png`
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#061526] via-[#0a1f35] to-[#061526] text-white">
@@ -173,30 +171,20 @@ Proteccion VIP - 3 Dias
           </form>
         </section>
 
-        {/* QR Code */}
+        {/* QR Code - Compacto */}
         <section className="mb-6">
-          <div className="bg-white/5 border border-cyan-500/20 rounded-2xl p-5 text-center">
-            <p className="text-white/60 text-xs uppercase tracking-wider mb-3">Escanea y comparte</p>
-            <div className="inline-block p-3 bg-white rounded-xl mb-3">
+          <div className="flex items-center gap-4 bg-white/5 border border-cyan-500/20 rounded-xl p-4">
+            <div className="flex-shrink-0 p-2 bg-white rounded-lg">
               <img
-                src={qrUrl}
+                src={CONFIG.QR_CODE}
                 alt="QR Code - Seminario VIP"
-                className="w-32 h-32"
+                className="w-20 h-20"
               />
             </div>
-            <p className="text-cyan-400/80 text-xs break-all">{CONFIG.PAGE_URL}</p>
-
-            {/* Boton descargar QR */}
-            <a
-              href={qrUrl}
-              download="qr-seminario-vip.png"
-              className="inline-flex items-center gap-2 mt-3 px-4 py-2 bg-cyan-500/20 border border-cyan-500/30 rounded-lg text-cyan-400 text-sm hover:bg-cyan-500/30 transition-colors"
-            >
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-              </svg>
-              Descargar QR
-            </a>
+            <div className="flex-1 min-w-0">
+              <p className="text-white/80 text-sm font-medium mb-1">Comparte este evento</p>
+              <p className="text-cyan-400/70 text-xs truncate">{CONFIG.PAGE_URL}</p>
+            </div>
           </div>
         </section>
 

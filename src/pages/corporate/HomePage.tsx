@@ -42,28 +42,125 @@ export function HomePage() {
 
   return (
     <div>
-      {/* Hero Section - Full Image Background */}
+      {/* Hero Section - Powerful Design */}
       <section className="relative min-h-screen overflow-hidden">
-        {/* Background Image */}
-        <div className="absolute inset-0">
-          <img
-            src="/images/hero-principal.png"
-            alt="Force Perú - Seguridad Integral"
-            className="w-full h-full object-cover object-top"
-          />
-          {/* Overlay for better text readability */}
-          <div className="absolute inset-0 bg-gradient-to-b from-[#0B1220]/30 via-transparent to-[#0B1220]/70" />
+        {/* Background with Dark Gradient */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[#0a1628] via-[#0d1f3c] to-[#061220]" />
+
+        {/* Subtle Grid Pattern */}
+        <div className="absolute inset-0 opacity-[0.03]" style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
+        }} />
+
+        {/* Glow Effects */}
+        <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-cyan-500/10 rounded-full blur-[150px]" />
+        <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-amber-500/10 rounded-full blur-[120px]" />
+
+        {/* Content Container */}
+        <div className="relative z-10 min-h-screen flex items-center">
+          <div className="w-full max-w-7xl mx-auto px-6 lg:px-8">
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+
+              {/* Left Side - Text Content */}
+              <div className="text-left">
+                {/* Badge */}
+                <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 border border-white/10 rounded-full mb-6">
+                  <div className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse" />
+                  <span className="text-white/70 text-sm font-medium">Desde 2012 protegiendo lo que importa</span>
+                </div>
+
+                {/* Main Headline */}
+                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-[1.1] mb-6">
+                  <span className="block">Tu Aliado</span>
+                  <span className="block">Estratégico en</span>
+                  <span className="block bg-gradient-to-r from-amber-400 via-amber-300 to-amber-400 bg-clip-text text-transparent">
+                    Seguridad Integral
+                  </span>
+                </h1>
+
+                {/* Subheadline */}
+                <p className="text-lg lg:text-xl text-white/60 max-w-lg mb-8 leading-relaxed">
+                  Protección profesional, saneamiento certificado y capacitación especializada para empresas que exigen excelencia.
+                </p>
+
+                {/* Stats Row */}
+                <div className="flex flex-wrap gap-8 mb-10">
+                  <div>
+                    <p className="text-3xl lg:text-4xl font-bold text-white">+12</p>
+                    <p className="text-white/50 text-sm">Años de experiencia</p>
+                  </div>
+                  <div className="w-px bg-white/10 hidden sm:block" />
+                  <div>
+                    <p className="text-3xl lg:text-4xl font-bold text-white">+500</p>
+                    <p className="text-white/50 text-sm">Clientes satisfechos</p>
+                  </div>
+                  <div className="w-px bg-white/10 hidden sm:block" />
+                  <div>
+                    <p className="text-3xl lg:text-4xl font-bold text-white">24/7</p>
+                    <p className="text-white/50 text-sm">Disponibilidad</p>
+                  </div>
+                </div>
+
+                {/* CTA Buttons */}
+                <div className="flex flex-wrap gap-4">
+                  <Link
+                    to="/contacto"
+                    className="group inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-amber-500 to-amber-400 text-[#0a1628] font-bold rounded-xl transition-all duration-300 hover:shadow-xl hover:shadow-amber-500/25 hover:-translate-y-0.5"
+                  >
+                    Solicitar Cotización
+                    <svg className="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </Link>
+                  <Link
+                    to="/servicios"
+                    className="inline-flex items-center gap-3 px-8 py-4 bg-white/5 border border-white/20 text-white font-semibold rounded-xl transition-all duration-300 hover:bg-white/10 hover:border-white/30"
+                  >
+                    Ver Servicios
+                  </Link>
+                </div>
+              </div>
+
+              {/* Right Side - Image */}
+              <div className="relative hidden lg:block">
+                {/* Decorative Ring */}
+                <div className="absolute -inset-4 border border-amber-400/20 rounded-full" />
+                <div className="absolute -inset-8 border border-white/5 rounded-full" />
+
+                {/* Image Container */}
+                <div className="relative">
+                  <img
+                    src="/images/hero-principal.png"
+                    alt="Force Perú - Seguridad Profesional"
+                    className="w-full h-auto max-w-lg mx-auto"
+                  />
+
+                  {/* Floating Badge - Bottom */}
+                  <div className="absolute -bottom-4 -left-4 bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-4 shadow-2xl">
+                    <div className="flex items-center gap-3">
+                      <div className="w-12 h-12 bg-gradient-to-br from-emerald-400 to-emerald-500 rounded-xl flex items-center justify-center">
+                        <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                        </svg>
+                      </div>
+                      <div>
+                        <p className="text-white font-semibold text-sm">Certificado SUCAMEC</p>
+                        <p className="text-white/50 text-xs">Servicios autorizados</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* Scroll indicator */}
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-float z-10">
-          <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center">
-            <div className="w-1.5 h-3 bg-white/70 rounded-full mt-2 animate-slide-up" />
+          <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center">
+            <div className="w-1.5 h-3 bg-white/50 rounded-full mt-2 animate-slide-up" />
           </div>
         </div>
-
-        {/* Spacer to maintain min-height */}
-        <div className="relative z-10 min-h-screen" />
       </section>
 
       {/* Certifications Bar - Marquee Infinito */}

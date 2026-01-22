@@ -65,8 +65,8 @@ Proteccion VIP - 3 Dias
     window.open(`https://wa.me/${CONFIG.WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`, '_blank')
   }
 
-  // QR Code usando API gratuita
-  const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(CONFIG.PAGE_URL)}`
+  // QR Code - usando quickchart.io que genera QRs que abren directo en navegador
+  const qrUrl = `https://quickchart.io/qr?text=${encodeURIComponent(CONFIG.PAGE_URL)}&size=200&dark=000000&light=ffffff&ecLevel=M&format=png`
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#061526] via-[#0a1f35] to-[#061526] text-white">

@@ -63,20 +63,6 @@ function useInscripcionStats() {
   return { stats, loading }
 }
 
-function formatLocalDate(isoString: string): string {
-  try {
-    const date = new Date(isoString)
-    return date.toLocaleDateString('es-PE', {
-      day: '2-digit',
-      month: 'short',
-      hour: '2-digit',
-      minute: '2-digit',
-    })
-  } catch {
-    return ''
-  }
-}
-
 function useCountdown(targetDate: Date) {
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 })
 

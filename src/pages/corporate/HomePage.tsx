@@ -49,7 +49,7 @@ export function HomePage() {
           <img
             src="/images/hero-principal.png"
             alt="Force Perú - Seguridad Integral"
-            className="w-full h-full object-cover object-center"
+            className="w-full h-full object-cover object-top"
           />
           {/* Overlay for better text readability */}
           <div className="absolute inset-0 bg-gradient-to-b from-[#0B1220]/30 via-transparent to-[#0B1220]/70" />

@@ -171,21 +171,28 @@ Proteccion VIP - 3 Dias
           </form>
         </section>
 
-        {/* QR Code - Compacto */}
+        {/* Compartir */}
         <section className="mb-6">
-          <div className="flex items-center gap-4 bg-white/5 border border-cyan-500/20 rounded-xl p-4">
-            <div className="flex-shrink-0 p-2 bg-white rounded-lg">
-              <img
-                src={CONFIG.QR_CODE}
-                alt="QR Code - Seminario VIP"
-                className="w-20 h-20"
-              />
-            </div>
-            <div className="flex-1 min-w-0">
-              <p className="text-white/80 text-sm font-medium mb-1">Comparte este evento</p>
-              <p className="text-cyan-400/70 text-xs truncate">{CONFIG.PAGE_URL}</p>
-            </div>
-          </div>
+          <button
+            onClick={() => {
+              if (navigator.share) {
+                navigator.share({
+                  title: 'Seminario VIP - Proteccion de Personajes',
+                  text: 'Inscribete gratis al seminario de 3 dias',
+                  url: CONFIG.PAGE_URL,
+                })
+              } else {
+                navigator.clipboard.writeText(CONFIG.PAGE_URL)
+                alert('Link copiado!')
+              }
+            }}
+            className="w-full flex items-center justify-center gap-3 bg-white/5 border border-cyan-500/20 rounded-xl p-4 hover:bg-white/10 transition-colors"
+          >
+            <svg className="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
+            </svg>
+            <span className="text-white font-medium">Compartir evento</span>
+          </button>
         </section>
 
         {/* Certificacion - nota pequeña */}

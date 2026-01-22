@@ -88,17 +88,6 @@ Proteccion VIP - 3 Dias
 
       {/* Main Content */}
       <main className="px-4 py-6 max-w-lg mx-auto">
-        {/* Badge EN VIVO */}
-        <div className="flex justify-center mb-4">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-red-500/20 border border-red-500/40 rounded-full">
-            <span className="relative flex h-3 w-3">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-3 w-3 bg-red-500"></span>
-            </span>
-            <span className="text-red-400 text-sm font-semibold uppercase tracking-wider">En Vivo Online</span>
-          </div>
-        </div>
-
         {/* Flyer Image */}
         <section className="mb-6">
           <div className="rounded-2xl overflow-hidden shadow-2xl shadow-cyan-500/20 border border-cyan-500/20">

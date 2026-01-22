@@ -235,93 +235,90 @@ Proteccion VIP - 3 Dias
               </div>
             </div>
 
-            {/* Card 2: Certificacion Profesional */}
-            <div className="group bg-[#0b2640] border border-amber-500/20 rounded-2xl p-5 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-amber-500/10 hover:border-amber-500/40">
-              <div className="flex items-center justify-between mb-4">
-                <h3 className="text-lg font-bold text-white">Certificación Profesional</h3>
-                <span className="px-3 py-1 bg-amber-500/20 border border-amber-500/40 rounded-full text-amber-400 text-xs font-semibold uppercase">
-                  Opcional
-                </span>
+            {/* Card 2: Certificacion Profesional - PREMIUM */}
+            <div className="group relative bg-gradient-to-br from-[#0b2640] via-[#0d2a45] to-[#0b2640] border-2 border-amber-500/30 rounded-2xl p-5 transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl hover:shadow-amber-500/20 hover:border-amber-400/50 overflow-hidden">
+              {/* Efecto glow de fondo */}
+              <div className="absolute inset-0 bg-gradient-to-br from-amber-500/5 via-transparent to-amber-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+              {/* Ribbon destacado */}
+              <div className="absolute -right-8 top-6 rotate-45 bg-gradient-to-r from-amber-500 to-amber-400 text-[#061526] text-[10px] font-bold py-1 px-10 shadow-lg">
+                RECOMENDADO
               </div>
 
-              <p className="text-amber-400/90 text-sm mb-4 italic">
-                "Convierte tu asistencia en un respaldo profesional verificable."
-              </p>
+              <div className="relative">
+                <div className="flex items-center justify-between mb-4">
+                  <h3 className="text-lg font-bold text-white">Certificación Profesional</h3>
+                  <span className="px-3 py-1 bg-amber-500/20 border border-amber-500/40 rounded-full text-amber-400 text-xs font-semibold uppercase animate-pulse">
+                    Opcional
+                  </span>
+                </div>
 
-              <ul className="space-y-3 mb-5">
-                <li className="flex items-start gap-3">
-                  <div className="w-6 h-6 bg-amber-500/20 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <svg className="w-3.5 h-3.5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
-                    </svg>
-                  </div>
-                  <span className="text-white/80 text-sm">Evaluación de competencias operativas</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <div className="w-6 h-6 bg-amber-500/20 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <svg className="w-3.5 h-3.5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
-                    </svg>
-                  </div>
-                  <span className="text-white/80 text-sm">Certificado digital con código de verificación</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <div className="w-6 h-6 bg-amber-500/20 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <svg className="w-3.5 h-3.5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                    </svg>
-                  </div>
-                  <span className="text-white/80 text-sm">Validez laboral mediante convenios institucionales</span>
-                </li>
-              </ul>
+                <p className="text-amber-400/90 text-sm mb-4 italic border-l-2 border-amber-500/50 pl-3">
+                  "Convierte tu asistencia en un respaldo profesional verificable."
+                </p>
 
-              <div className="flex items-center justify-between mb-4 p-3 bg-amber-500/10 rounded-xl">
-                <span className="text-white/60 text-sm">Inversión única:</span>
-                <span className="text-amber-400 font-bold text-lg">S/ 120.00</span>
-              </div>
-
-              <button
-                onClick={() => {
-                  const message = `Hola, deseo agregar la *CERTIFICACIÓN PROFESIONAL* (S/120) al Seminario VIP de Protección de Personajes.`
-                  window.open(`https://wa.me/${CONFIG.WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`, '_blank')
-                }}
-                className="w-full py-3 bg-gradient-to-r from-amber-500 to-amber-400 text-[#061526] font-bold rounded-xl text-sm transition-all hover:shadow-lg hover:shadow-amber-500/30"
-              >
-                Agregar Certificación
-              </button>
-
-              {/* Prueba Social - Card Certificación */}
-              <div className="mt-4 pt-4 border-t border-amber-500/10" aria-label="Estadísticas de certificación">
-                {!statsLoading && stats && stats.cert_count > 0 ? (
-                  <>
-                    {/* Chip Recomendado */}
-                    <div className="flex justify-center mb-2">
-                      <span className="inline-flex items-center gap-1 px-2 py-0.5 bg-amber-500/10 border border-amber-500/30 rounded text-[10px] text-amber-400 font-medium">
-                        <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-                          <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                        </svg>
-                        Recomendado para CV
-                      </span>
+                <ul className="space-y-3 mb-5">
+                  <li className="flex items-start gap-3">
+                    <div className="w-7 h-7 bg-gradient-to-br from-amber-500/30 to-amber-600/20 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5 border border-amber-500/30">
+                      <svg className="w-4 h-4 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+                      </svg>
                     </div>
+                    <span className="text-white/90 text-sm">Evaluación de competencias operativas</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <div className="w-7 h-7 bg-gradient-to-br from-amber-500/30 to-amber-600/20 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5 border border-amber-500/30">
+                      <svg className="w-4 h-4 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                      </svg>
+                    </div>
+                    <span className="text-white/90 text-sm">Certificado digital con código de verificación</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <div className="w-7 h-7 bg-gradient-to-br from-amber-500/30 to-amber-600/20 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5 border border-amber-500/30">
+                      <svg className="w-4 h-4 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                      </svg>
+                    </div>
+                    <span className="text-white/90 text-sm">Validez laboral mediante convenios institucionales</span>
+                  </li>
+                </ul>
+
+                <div className="flex items-center justify-between mb-4 p-4 bg-gradient-to-r from-amber-500/15 to-amber-600/10 rounded-xl border border-amber-500/20">
+                  <span className="text-white/70 text-sm">Inversión única:</span>
+                  <div className="text-right">
+                    <span className="text-amber-400 font-bold text-2xl">S/ 120</span>
+                    <span className="text-amber-400/60 text-sm">.00</span>
+                  </div>
+                </div>
+
+                <button
+                  onClick={() => {
+                    const message = `Hola, deseo agregar la *CERTIFICACIÓN PROFESIONAL* (S/120) al Seminario VIP de Protección de Personajes.`
+                    window.open(`https://wa.me/${CONFIG.WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`, '_blank')
+                  }}
+                  className="w-full py-3.5 bg-gradient-to-r from-amber-500 via-amber-400 to-amber-500 bg-[length:200%_100%] text-[#061526] font-bold rounded-xl text-sm transition-all duration-500 hover:bg-[position:100%_0] hover:shadow-xl hover:shadow-amber-500/40 active:scale-[0.98]"
+                >
+                  Agregar Certificación
+                </button>
+
+                {/* Prueba Social - Card Certificación */}
+                <div className="mt-4 pt-4 border-t border-amber-500/20" aria-label="Estadísticas de certificación">
+                  {!statsLoading && stats && stats.cert_count > 0 ? (
                     <div className="flex items-center justify-center gap-2 text-slate-400">
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                      <svg className="w-4 h-4 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                       </svg>
                       <span className="text-xs">
-                        <span className="text-amber-400 font-semibold">{stats.cert_count}</span> participantes ya se certificaron
+                        Elegido por <span className="text-amber-400 font-semibold">{stats.cert_count}</span> participantes
                       </span>
                     </div>
-                    {stats.updated_at && (
-                      <p className="text-center text-[10px] text-slate-500 mt-1">
-                        Actualizado: {formatLocalDate(stats.updated_at)}
-                      </p>
-                    )}
-                  </>
-                ) : (
-                  <p className="text-center text-xs text-slate-500">
-                    Cupos limitados. Registro en curso.
-                  </p>
-                )}
+                  ) : (
+                    <p className="text-center text-xs text-slate-500">
+                      Cupos limitados. Registro en curso.
+                    </p>
+                  )}
+                </div>
               </div>
             </div>
           </div>

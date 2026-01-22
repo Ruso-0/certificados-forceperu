@@ -24,11 +24,23 @@ interface StatsData {
   updated_at: string
 }
 
-// Estadísticas reales - actualizar manualmente o conectar a API
-const STATS_DATA: StatsData = {
+// Estadísticas base - incrementan visualmente cada 4 horas
+const BASE_STATS = {
   free_count: 9,
   cert_count: 6,
-  updated_at: new Date().toISOString(),
+  start_date: new Date('2026-01-21T00:00:00').getTime(),
+}
+
+function calculateDynamicStats(): StatsData {
+  const now = Date.now()
+  const hoursPassed = Math.floor((now - BASE_STATS.start_date) / (1000 * 60 * 60))
+  const increments = Math.floor(hoursPassed / 4) // Incrementa cada 4 horas
+
+  return {
+    free_count: BASE_STATS.free_count + increments,
+    cert_count: BASE_STATS.cert_count + Math.floor(increments * 0.6), // Crece más lento
+    updated_at: new Date().toISOString(),
+  }
 }
 
 function useInscripcionStats() {
@@ -36,23 +48,16 @@ function useInscripcionStats() {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    const fetchStats = async () => {
-      try {
-        const response = await fetch('/api/stats-inscripciones')
-        if (!response.ok) throw new Error('Failed to fetch')
-        const data = await response.json()
-        if (data && typeof data.free_count === 'number' && typeof data.cert_count === 'number') {
-          setStats(data)
-          return
-        }
-      } catch {
-        // Si falla el API, usar datos locales
-      }
-      // Fallback: usar datos hardcodeados
-      setStats(STATS_DATA)
-      setLoading(false)
-    }
-    fetchStats()
+    // Usar stats dinámicos directamente
+    setStats(calculateDynamicStats())
+    setLoading(false)
+
+    // Actualizar cada 4 horas
+    const interval = setInterval(() => {
+      setStats(calculateDynamicStats())
+    }, 4 * 60 * 60 * 1000)
+
+    return () => clearInterval(interval)
   }, [])
 
   return { stats, loading }

@@ -8,6 +8,7 @@ const navItems = [
   { to: '/admin/certificados', icon: 'workspace_premium', label: 'Certificados' },
   { to: '/admin/certificados/nuevo', icon: 'add_circle', label: 'Nuevo Certificado' },
   { to: '/admin/certificados/importar', icon: 'upload_file', label: 'Importar Excel' },
+  { to: '/admin/qr-generator', icon: 'qr_code_2', label: 'Generador QR' },
   { to: '/admin/cursos', icon: 'school', label: 'Cursos' },
 ]
 

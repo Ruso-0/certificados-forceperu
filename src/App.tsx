@@ -23,6 +23,7 @@ import { CertificatesPage } from './pages/admin/CertificatesPage'
 import { NewCertificatePage } from './pages/admin/NewCertificatePage'
 import { ImportPage } from './pages/admin/ImportPage'
 import { CoursesPage } from './pages/admin/CoursesPage'
+import { QRGeneratorPage } from './pages/admin/QRGeneratorPage'
 
 // Public Pages
 import { VerifyPage } from './pages/public/VerifyPage'
@@ -75,6 +76,7 @@ function App() {
             <Route path="certificados/nuevo" element={<NewCertificatePage />} />
             <Route path="certificados/importar" element={<ImportPage />} />
             <Route path="cursos" element={<CoursesPage />} />
+            <Route path="qr-generator" element={<QRGeneratorPage />} />
           </Route>
 
           {/* Fallback */}

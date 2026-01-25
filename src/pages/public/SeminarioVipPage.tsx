@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 const CONFIG = {
   WHATSAPP_NUMBER: '51907544736',
   LOGO: '/images/logo-force.png',
-  FLYER: '/images/flyer-seminario-vip.png',
+  FLYER: 'https://pub-93d738da4a224e9fad1fc184335fb435.r2.dev/flyer-seminario-vip.png',
   QR_CODE: '/images/qr-seminario-vip.svg',
   PAGE_URL: 'https://force-peru.vercel.app/seminario-vip',
   INTRO_VIDEO: '/videos/seminario-intro.mp4',

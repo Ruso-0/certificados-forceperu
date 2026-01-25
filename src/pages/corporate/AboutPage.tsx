@@ -49,7 +49,7 @@ export function AboutPage() {
             playsInline
             className="w-full h-full object-cover"
           >
-            <source src="/videos/about-background.mp4" type="video/mp4" />
+            <source src="https://pub-93d738da4a224e9fad1fc184335fb435.r2.dev/about-background.mp4" type="video/mp4" />
           </video>
           <div className="absolute inset-0 bg-gradient-to-b from-[#0B1220]/70 via-[#0B1220]/50 to-[#0B1220]/90" />
         </div>

@@ -12,9 +12,10 @@ const statusConfig: Record<Certificate['status'], { variant: 'success' | 'error'
 }
 
 export function CertificatesPage() {
-  const { certificates, loading, revokeCertificate } = useCertificates()
+  const { certificates, loading, revokeCertificate, deleteCertificate } = useCertificates()
   const [search, setSearch] = useState('')
   const [revoking, setRevoking] = useState<string | null>(null)
+  const [deleting, setDeleting] = useState<string | null>(null)
 
   const filteredCertificates = certificates.filter(
     (cert) =>
@@ -34,6 +35,21 @@ export function CertificatesPage() {
       alert(err instanceof Error ? err.message : 'Error al revocar')
     } finally {
       setRevoking(null)
+    }
+  }
+
+  const handleDelete = async (id: string, name: string) => {
+    if (!confirm(`¿Estás seguro de eliminar el certificado de "${name}"? Esta acción no se puede deshacer.`)) {
+      return
+    }
+
+    setDeleting(id)
+    try {
+      await deleteCertificate(id)
+    } catch (err) {
+      alert(err instanceof Error ? err.message : 'Error al eliminar')
+    } finally {
+      setDeleting(null)
     }
   }
 
@@ -157,6 +173,16 @@ export function CertificatesPage() {
                         {revoking === cert.id ? '...' : 'Revocar'}
                       </Button>
                     )}
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      leftIcon="delete"
+                      className="text-red-500 hover:text-red-600 hover:bg-red-50"
+                      onClick={() => handleDelete(cert.id, cert.participant_name)}
+                      disabled={deleting === cert.id}
+                    >
+                      {deleting === cert.id ? '...' : 'Eliminar'}
+                    </Button>
                   </div>
                 </div>
               </Card>

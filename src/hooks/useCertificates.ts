@@ -85,6 +85,17 @@ export function useCertificates() {
     })
   }, [updateCertificate])
 
+  const deleteCertificate = useCallback(async (id: string) => {
+    const { error } = await supabase
+      .from('certificates')
+      .delete()
+      .eq('id', id)
+
+    if (error) throw error
+
+    setCertificates((prev) => prev.filter((c) => c.id !== id))
+  }, [])
+
   return {
     certificates,
     loading,
@@ -93,6 +104,7 @@ export function useCertificates() {
     createCertificate,
     updateCertificate,
     revokeCertificate,
+    deleteCertificate,
   }
 }
 
